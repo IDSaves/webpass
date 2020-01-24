@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import randomName from "random-name";
+// import randomName from "random-name";
+// import nickGenerator from "nick-generator";
+import nickGen from "project-name-generator";
 
 const images = (() => {
     let r = require.context("./avatars", false, /.*\.svg$/);
@@ -25,9 +27,11 @@ const networks = [
 const Example = () => {
     const [id, setId] = useState(rand(1, 50));
     const avatar = images[`${id}-male`] ? images[`${id}-male`] : images[`${id}-female`];
+    const generatedNickname = nickGen({ words: 2 }).raw;
+    const name = generatedNickname.map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
     const pickedNetworks = (() => {
         let result = [];
-        let amount = rand(1, 5);
+        let amount = rand(3, 6);
         for (let i = 0; i < amount; i++) {
             let picked = rand(1, networks.length - 1);
             result.push(networks[picked])
@@ -39,7 +43,7 @@ const Example = () => {
     return(
         <div className="example-passport mt-5 p-3 text-center">
             <img src={images[`${id}-male`] ? images[`${id}-male`] : images[`${id}-female`]} className="img-fluid" alt="Avatar"/>
-            <h4 className="mt-3">{randomName.first() + " " + randomName.last()}</h4>
+            <h4 className="mt-3">{name}</h4>
 
             <div>
                 {pickedNetworks.map((item, i) => (
