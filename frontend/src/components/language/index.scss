@@ -1,0 +1,34 @@
+.lang-changer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    padding: 5px;
+    border-bottom-left-radius: 5px;
+
+    span{
+        cursor: pointer;
+        margin: 3px;
+
+        img {
+            -webkit-filter: grayscale(50%);
+            filter: grayscale(50%);
+            transition: .3s;
+        }
+    }
+
+    span.active{
+        img {
+            -webkit-filter: grayscale(0%);
+            filter: grayscale(0%);
+        }
+    }
+
+    span:hover {
+        img {
+            -webkit-filter: grayscale(0%);
+            filter: grayscale(0%);
+        }
+    }
+
+}
