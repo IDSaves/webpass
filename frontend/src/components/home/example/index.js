@@ -37,6 +37,7 @@ const pickNetworks = () => {
 const Example = () => {
     const [user, setUser] = useState({avatar: "", name: "", networks: []});
     const [hide, setHide] = useState(false);
+
     useEffect(() => {
         generateUser();
         setInterval(() => {
@@ -64,7 +65,6 @@ const Example = () => {
                 <img src={user.avatar} className="img-fluid" alt="Avatar"/>
                 <h4 className="mt-3">{user.name}</h4>
 
-                
                 {user.networks.map((item, i) => (
                     <i className={item} key={i} />
                 ))}
