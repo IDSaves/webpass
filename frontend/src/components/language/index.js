@@ -3,7 +3,7 @@ import { Twemoji } from "react-emoji-render";
 import "./index.scss";
 
 const Language = () => {
-    const [active, setActive] = useState(localStorage.getItem("lang") ? localStorage.getItem("lang") == "Eng" ? "Eng" : "Ru" : "Eng");
+    const [active, setActive] = useState(localStorage.getItem("lang") ? localStorage.getItem("lang") === "Eng" ? "Eng" : "Ru" : "Eng");
 
     const changeLang = (to) => {
         localStorage.setItem("lang", to);

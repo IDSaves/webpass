@@ -51,7 +51,6 @@ const Example = () => {
     function generateUser() {
         const id = rand(1, 50);
         const generatedNickname = nickGen({ words: 2 }).raw;
-        console.log("Generated");
         setUser({
             avatar: images[`${id}-male`] ? images[`${id}-male`] : images[`${id}-female`],
             name: generatedNickname.map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" "),
@@ -60,7 +59,7 @@ const Example = () => {
     }
 
     return(
-        <div className="example-passport mt-5 p-3 text-center">
+        <div className="box example-passport mt-5 p-3 text-center">
             <div className={hide && "hide"}>
                 <img src={user.avatar} className="img-fluid" alt="Avatar"/>
                 <h4 className="mt-3">{user.name}</h4>
