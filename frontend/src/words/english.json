@@ -1,5 +1,7 @@
 {
     "home": {
-        "tagline": "Collect all your social networks in one place..."
+        "tagline": "Collect all your social networks in one place...",
+        "search_input": "Enter passport id or it's code",
+        "create_button": "Create a passport" 
     }
 }
