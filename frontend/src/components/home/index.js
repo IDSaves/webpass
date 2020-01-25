@@ -15,20 +15,10 @@ const Home = () => {
 
             <center className="mb-5">
                 <Example />
+                <Search />
+                <Create />
             </center>
 
-            <div className="row">
-                <div className="col-md-8 offset-md-2 col-12 mb-3">
-                    <div className="container-fluid p-0">
-                        <Search />
-                    </div>
-                </div>
-                <div className="col-md-8 offset-md-2 col-12">
-                    <div className="container-fluid p-0">
-                        <Create />
-                    </div>
-                </div>
-            </div>
 
         </Fragment>
     );
