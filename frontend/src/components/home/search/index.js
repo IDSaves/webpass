@@ -8,7 +8,7 @@ const Search = () => {
             <div className="input-group">
                 <input type="text" className="form-control" placeholder={text} />
                 <div className="input-group-append">
-                    <button className="btn btn-outline-secondary" type="submit">
+                    <button className="btn btn-secondary" type="submit">
                         <i className="fas fa-search" />
                     </button>
                 </div>

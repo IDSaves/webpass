@@ -5,7 +5,7 @@ const Create = () => {
     const text = words().home.create_button;
     return(
         <div className="home-component box p-3">
-            <button type="button" className="btn btn-outline-success container-fluid">{text}</button>
+            <button type="button" className="btn btn-success container-fluid">{text}</button>
         </div>
     );
 }; 

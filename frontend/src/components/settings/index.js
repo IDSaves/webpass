@@ -29,9 +29,9 @@ const Settings = () => {
                 </button>
                 <button type="button" class="btn btn-link" onClick={() => changeTheme(theme === "light" ? "dark" : "light")}>
                     {theme === "light" ? (
-                        <i class="fas fa-moon"></i>
-                    ) : (
                         <i class="fas fa-sun"></i>
+                    ) : (
+                        <i class="fas fa-moon"></i>
                     )}
                 </button>
             </div>

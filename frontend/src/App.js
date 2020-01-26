@@ -7,6 +7,7 @@ const App = () => {
     useEffect(() => {
         if (!localStorage.getItem("lang")) localStorage.setItem("lang", "Eng");
         if (!localStorage.getItem("theme")) localStorage.setItem("theme", "light");
+        document.body.className = localStorage.getItem("theme");
     }, []);
 
     return(
