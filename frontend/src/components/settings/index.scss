@@ -1,18 +1,18 @@
-.lang-changer{
-    position: absolute;
-    top: 0;
-    right: 0;
+.settings{
     font-size: 30px;
     padding: 5px;
     border-bottom-left-radius: 5px;
 
     span{
         cursor: pointer;
-        margin: 3px;
+        padding-top: 10px;
 
         img {
-            -webkit-filter: grayscale(50%);
-            filter: grayscale(50%);
+            margin: none !important;
+            width: 2em !important;
+            height: 2em !important;
+            // -webkit-filter: grayscale(50%);
+            // filter: grayscale(50%);
             transition: .3s;
         }
     }
@@ -29,6 +29,13 @@
             -webkit-filter: grayscale(0%);
             filter: grayscale(0%);
         }
+    }
+
+    i {
+        font-size: 20px;
+        margin-left: 5px;
+        top: 0 !important;
+        color: rgb(226, 226, 9);
     }
 
 }

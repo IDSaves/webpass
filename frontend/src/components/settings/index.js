@@ -8,14 +8,34 @@ const Settings = () => {
 
     const changeLang = (to) => {
         localStorage.setItem("lang", to);
-        setLang(to);
+        window.location.reload();
+    }
+
+    const changeTheme = (to) => {
+        localStorage.setItem("theme", to);
         window.location.reload();
     }
 
     return(
-        <div className="lang-changer">
-            <Twemoji text="🇬🇧" onlyEmojiClassName={lang === "Eng" ? "active": ""} onClick={() => changeLang("Eng")} />
-            <Twemoji text="🇷🇺" onlyEmojiClassName={lang === "Ru" ? "active": ""} onClick={() => changeLang("Ru")} />
+        <div className="settings text-center">
+
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-link" onClick={() => changeLang(lang === "Ru" ? "Eng" : "Ru")}>
+                    {lang === "Ru" ? (
+                        <Twemoji text="🇷🇺" />
+                    ) : (
+                        <Twemoji text="🇬🇧" />
+                    )}
+                </button>
+                <button type="button" class="btn btn-link" onClick={() => changeTheme(theme === "light" ? "dark" : "light")}>
+                    {theme === "light" ? (
+                        <i class="fas fa-moon"></i>
+                    ) : (
+                        <i class="fas fa-sun"></i>
+                    )}
+                </button>
+            </div>
+
         </div>
     );
 };
