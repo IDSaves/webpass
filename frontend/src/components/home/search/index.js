@@ -2,7 +2,7 @@ import React from "react";
 import words from "../../../words";
 
 const Search = () => {
-    const text = localStorage.getItem("lang") === "Ru" ? words("ru").home.search_input : words().home.search_input;
+    const text = words().home.search_input;
     return(
         <div className="home-component box p-3 mb-3 mt-5">
             <div className="input-group">

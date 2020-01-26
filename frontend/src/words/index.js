@@ -2,7 +2,7 @@ import EngWords from "./english.json";
 import RuWords from "./russian.json";
 
 
-export default (lang) => {
-    if (lang === "ru") return RuWords;
+export default () => {
+    if (localStorage.getItem("lang") === "Ru") return RuWords;
     return EngWords;
 }

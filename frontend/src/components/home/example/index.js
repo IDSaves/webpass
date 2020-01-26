@@ -61,7 +61,7 @@ const Example = () => {
 
     return(
         <div className="box example-passport mt-5 p-3 text-center">
-            <div className={hide && "hide"}>
+            <div className={hide ? "hide" : undefined}>
                 <img src={user.avatar} className="img-fluid" alt="Avatar"/>
                 <h4 className="mt-3">{user.name}</h4>
 

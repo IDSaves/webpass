@@ -6,7 +6,7 @@ import words from "../../words";
 import "./index.scss";
 
 const Home = () => {
-    const tagline = localStorage.getItem("lang") === "Ru" ? words("ru").home.tagline : words().home.tagline;
+    const tagline = words().home.tagline;
     
     return(
         <Fragment>
