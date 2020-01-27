@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Twemoji } from "react-emoji-render";
+import words from "../../words";
 import "./index.scss";
 
 const Settings = () => {
-    const [lang, setLang] = useState(localStorage.getItem("lang") ? localStorage.getItem("lang") : "Eng");
+    const [lang, setLang] = useState(words(true));
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
 
     const changeLang = (to) => {

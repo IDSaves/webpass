@@ -5,7 +5,11 @@ import Footer from "./components/footer";
 const App = () => {
 
     useEffect(() => {
-        if (!localStorage.getItem("lang")) localStorage.setItem("lang", "Eng");
+        if (!localStorage.getItem("lang")) {
+            let lang = navigator.language || navigator.userLanguage;
+            if (lang === "ru-RU") localStorage.setItem("lang", "Ru");
+            else localStorage.setItem("lang", "Eng");
+        }
         if (!localStorage.getItem("theme")) localStorage.setItem("theme", "light");
         document.body.className = localStorage.getItem("theme");
     }, []);
