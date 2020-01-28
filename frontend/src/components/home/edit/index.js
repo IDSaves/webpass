@@ -1,9 +1,11 @@
 import React from "react";
+import words from "../../../words";
 
 
 const Edit = () => {
-    const inputText = "Key"; 
-    const btnText = "Edit passport"
+    const inputText = words().home.edit_button.input; 
+    const btnText = words().home.edit_button.button;
+
     return(
         <div className="home-component box p-3 mb-3">
             <div className="input-group">
