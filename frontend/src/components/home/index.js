@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import Example from "./example";
 import Create from "./create";
 import Search from "./search";
+import Edit from "./edit";
 import words from "../../words";
 import "./index.scss";
 
@@ -16,6 +17,7 @@ const Home = () => {
             <center className="mb-5">
                 <Example />
                 <Search />
+                <Edit />
                 <Create />
             </center>
 
