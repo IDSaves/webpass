@@ -3,9 +3,9 @@
         "tagline": "Collect all your social networks in one place...",
         "search_input": "Enter passport code",
         "create_button": "Create a passport",
-        "edit_button": {
+        "management_button": {
             "input": "Key",
-            "button": "Edit passport"
+            "button": "Passport management"
         }
     }
 }
