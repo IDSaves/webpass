@@ -1,15 +1,15 @@
 import React, { useEffect, Fragment } from "react";
 import Home from "./components/home";
 import Footer from "./components/footer";
+import Create from "./components/create";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
 
 const NoMatch = ({ location }) => {
-    document.title = "404 - Davydoff's page";
+    document.title = "404 - Web Passport";
     return (
-        <div className="mt-4 mb-4 text-center">
-        <Link to="/">Home</Link>
-        <h3 className="mt-3">No match for <code>{location.pathname}</code></h3>
+        <div className="mt-4  text-center">
+            <h4 className="mt-3">No match for <code>{location.pathname}</code></h4>
         </div>
     );
 };
@@ -31,9 +31,10 @@ const App = () => {
             <div className="row m-0">
                 <div className="col-lg-6 offset-lg-3 p-0 mt-3">
                     <div className="container-fluid">
+                        <Link to="/"><h1 className="text-center mt-3"><b>WEB PASSPORT</b></h1></Link>
                         <Switch>
                             <Route exact path="/" component={Home} />
-
+                            <Route path="/create" component={Create} />
                             <Route component={NoMatch} />
                         </Switch>
                     </div>

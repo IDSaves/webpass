@@ -20,19 +20,19 @@ const Settings = () => {
     return(
         <div className="settings text-center">
 
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-link" onClick={() => changeLang(lang === "Ru" ? "Eng" : "Ru")}>
+            <div className="btn-group" role="group">
+                <button type="button" className="btn btn-link" onClick={() => changeLang(lang === "Ru" ? "Eng" : "Ru")}>
                     {lang === "Ru" ? (
                         <Twemoji text="🇷🇺" />
                     ) : (
                         <Twemoji text="🇬🇧" />
                     )}
                 </button>
-                <button type="button" class="btn btn-link" onClick={() => changeTheme(theme === "light" ? "dark" : "light")}>
+                <button type="button" className="btn btn-link" onClick={() => changeTheme(theme === "light" ? "dark" : "light")}>
                     {theme === "light" ? (
-                        <i class="fas fa-sun"></i>
+                        <i className="fas fa-sun"></i>
                     ) : (
-                        <i class="fas fa-moon"></i>
+                        <i className="fas fa-moon"></i>
                     )}
                 </button>
             </div>

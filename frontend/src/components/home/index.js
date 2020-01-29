@@ -8,19 +8,17 @@ import "./index.scss";
 
 const Home = () => {
     const tagline = words().home.tagline;
-    
+    document.title = "Web Passport";
     return(
         <Fragment>
-            <h1 className="text-center mt-3"><b>WEB PASSPORT</b></h1>
             <h5 className="text-muted text-center">{tagline}</h5>
 
-            <center className="mb-4">
+            <center>
                 <Example />
                 <Search />
                 <Management />
                 <Create />
             </center>
-
 
         </Fragment>
     );

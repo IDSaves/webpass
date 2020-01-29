@@ -7,19 +7,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.custom-file-input{
+    cursor: pointer;
+}
+
 .light {
     color: rgb(70, 70, 70);
+
     background-color: #f6f7f9;
+
     .box {
         background-color: white;
         border-radius: 5px;
         box-shadow: 0 0 0 1px rgba(20,20,31,.05), 0 1px 3px 0 rgba(20,20,31,.15);
     }
+
+    .custom-file-label::after {
+        background-color: white;
+        content: "🔎" !important;
+    }
+
+    a, a:hover {
+        color: rgb(70, 70, 70);
+    }
 }
 
 .dark {
     background-color: #191927;
+
     color: #d6d8e1;
+
     .box {
         background-color: #222230;
         border-radius: 5px;
@@ -31,4 +48,25 @@ body {
         border: 1px solid #42425d;
         color: #bdbfc5;
     }
+
+    .custom-file-label {
+        background-color: #2d2d3f;
+        border: 1px solid #42425d;
+        color: #bdbfc5;
+    }
+
+    .custom-file-label::after {
+        background-color: #2d2d3f;
+        border-left: 1px solid #42425d;
+        color: #bdbfc5;
+        content: "🔎" !important;
+    }
+
+    a, a:hover {
+        color: #d6d8e1;
+    }
+}
+
+a {
+    text-decoration: none !important;
 }

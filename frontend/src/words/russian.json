@@ -7,5 +7,18 @@
             "input": "Ключ",
             "button": "Управление паспортом"
         }
+    },
+    "creation": {
+        "title": "Создание",
+        "avatar_component": {
+            "title": "Аватар",
+            "input": "Выбрать картинку"
+        },
+        "personal_component": {
+            "title": "Персональная информация"
+        },
+        "social_component": {
+            "title": "Социальные сети"
+        }
     }
 }

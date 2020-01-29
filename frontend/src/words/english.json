@@ -7,5 +7,18 @@
             "input": "Key",
             "button": "Passport management"
         }
+    },
+    "creation": {
+        "title": "Creation",
+        "avatar_component": {
+            "title": "Avatar",
+            "input": "Choose image"
+        },
+        "personal_component": {
+            "title": "Personal info"
+        },
+        "social_component": {
+            "title": "Social Networks"
+        }
     }
 }
