@@ -3,6 +3,7 @@ import words from "../../words";
 import Avatar from "./avatar";
 import Personal from "./personal";
 import Social from "./social";
+import Confirmation from "./confirmation";
 import "./index.scss";
 
 
@@ -16,7 +17,7 @@ const Create = () => {
 
                 <Avatar />
 
-                <div className="row mt-4">
+                <div className="row mt-4 mb-4">
 
                     <div className="col-xl-6 mb-3">
                         <Personal />
@@ -27,6 +28,8 @@ const Create = () => {
                     </div>
 
                 </div>
+
+                <Confirmation />
 
             </div>
         </Fragment>
