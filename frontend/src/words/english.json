@@ -15,10 +15,23 @@
             "input": "Choose image"
         },
         "personal_component": {
-            "title": "Personal info"
+            "title": "Personal info",
+            "nickname": "Nickname",
+            "name": "Name",
+            "surname": "Surname",
+            "status": "Status",
+            "email": "Public email",
+            "bdate": "Birth date",
+            "country": "Country"
         },
         "social_component": {
             "title": "Social Networks"
+        },
+        "confirmation_component": {
+            "title": "Confirmtaion",
+            "input": "Confirmation email",
+            "tooltip": "Email on which the passport key will be sent.",
+            "button": "Create"
         }
     }
 }
