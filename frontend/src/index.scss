@@ -7,6 +7,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input[type=date]::-webkit-clear-button {
+    display: none;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    display: none;
+}
+
 .custom-file-input{
     cursor: pointer;
 }
@@ -15,6 +29,12 @@ body {
     color: rgb(70, 70, 70);
 
     background-color: #f6f7f9;
+
+    .input-group-text {
+        background-color: white;
+        border-right: none;
+        color: #888c9b;
+    }
 
     .box {
         background-color: white;
@@ -43,11 +63,18 @@ body {
         box-shadow: 0 0 0 1px rgba(20,20,31,.05), 0 1px 3px 0 rgba(20,20,31,.15);
     }
 
-    input, input:focus {
+    input, input:focus, select, select:focus, .input-group-text {
         background-color: #2d2d3f;
         border: 1px solid #42425d;
         color: #bdbfc5;
     }
+
+    .input-group-text {
+        border-right: none;
+        color: #888c9b;
+    }
+
+
 
     .custom-file-label {
         background-color: #2d2d3f;
