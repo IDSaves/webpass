@@ -32,6 +32,7 @@
             "input": "Confirmation email",
             "tooltip": "Email on which the passport key will be sent.",
             "button": "Create"
-        }
+        },
+        "req": "required"
     }
 }
