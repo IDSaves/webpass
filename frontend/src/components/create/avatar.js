@@ -7,8 +7,8 @@ const Avatar = () => {
         <div className="image-input box p-3">
             <h4 className="text-center mb-3">{text.title}</h4>
             <div className="custom-file">
-                <input type="file" className="custom-file-input" id="customFile" />
-                <label className="custom-file-label" for="customFile">{text.input}</label>
+                <input type="file" className="custom-file-input" />
+                <label className="custom-file-label">{text.input}</label>
             </div>
         </div>
     );

@@ -8,7 +8,7 @@ const Confirmation = () => {
             <h4 className="text-center mb-3">{text.title}</h4>
 
             <div className="form-group">
-                <label data-toggle="tooltip" title={text.tooltip}>{text.input}</label>
+                <label>{text.input} <span className="text-warning">({text.tooltip})</span></label>
                 <input type="text" className="form-control" />
             </div>
             <button className="btn btn-success container-fluid">{text.button}</button>

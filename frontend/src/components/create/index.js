@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import words from "../../words";
 import Avatar from "./avatar";
 import Personal from "./personal";
@@ -8,8 +8,10 @@ import "./index.scss";
 
 
 const Create = () => {
-    document.title = "Passport creation";
+    const [avatar, setAvatar] = useState(null);
     const text = words().creation;
+    document.title = "Passport creation";
+
     return(
         <Fragment>
             <h5 className="text-success text-center">{text.title}</h5>
