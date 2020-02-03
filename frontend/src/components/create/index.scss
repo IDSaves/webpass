@@ -3,4 +3,11 @@
         max-width: 400px;
         margin: auto;
     }
+    .personal-inputs{
+        max-height: 680px;
+    }
+    .social-inputs{
+        max-height: 680px;
+        overflow-y: scroll;
+    }
 }

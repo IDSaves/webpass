@@ -7,7 +7,7 @@ const Personal = ({ state, handlePersonal }) => {
     const text = words().creation.personal_component;
     const reqText = words().creation.req;
     return(
-        <div className="container-fluid box m-0 p-3">
+        <div className="container-fluid box personal-inputs m-0 p-3">
             <h4 className="text-center mb-3">{text.title}</h4>
 
             <div className="form-group">
