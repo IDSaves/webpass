@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import axios from "axios";
 import words from "../../words";
 import Avatar from "./avatar";
 import Personal from "./personal";
@@ -30,11 +31,31 @@ const Create = () => {
         setSocial(soc);
     }
 
+    const postImage = () => new Promise((resolve, reject) => {
+        const data = new FormData();
+        data.append("image", avatar);
+
+        axios({
+            method: "post",
+            url: "https://api.imgur.com/3/image",
+            data: data,
+            headers: {"Authorization": "Client-ID 4532950a219a439"},
+            mimeType: "multipart/form-data"
+        })
+        .then((resp) => resolve(resp))
+        .catch((err) => reject(err));
+    });
+
     const create = () => {
-        console.log("Avatar: ", avatar);
-        console.log("Personal: ", personal);
-        console.log("Social: ", social);
-        console.log("Confirmation: ", confirmation);
+        // console.log("Avatar: ", avatar);
+        // console.log("Personal: ", personal);
+        // console.log("Social: ", social);
+        // console.log("Confirmation: ", confirmation);
+
+        postImage()
+            .then((data) => console.log("Success: (image link)" + data.data.data.link))
+            .catch((err) => console.log(err));
+        setAvatar(null);
     }
 
     return(
