@@ -6,9 +6,10 @@ export default (toFind) => {
     }
     else {
         return countries.find((a) => {
-            if (a.code == toFind) {
+            if (a.code === toFind) {
                 return true;
             }
+            return false;
         })
     }
 }
