@@ -40,13 +40,16 @@ const Example = () => {
 
     useEffect(() => {
         generateUser();
-        setInterval(() => {
+        let usersLoop = setInterval(() => {
             setHide(true);
             setTimeout(() => {
                 generateUser();
                 setTimeout(() => setHide(false), 500)
             }, 500)
         }, 10000);
+        return () => {
+            clearInterval(usersLoop);
+        }
     }, []);
 
     function generateUser() {
