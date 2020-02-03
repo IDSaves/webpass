@@ -7,17 +7,29 @@ import Social from "./social";
 import Confirmation from "./confirmation";
 import "./index.scss";
 
+const toBase64 = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
 
 const Create = () => {
-    const [avatar, setAvatar] = useState(null);
+    const [avatar, setAvatar] = useState({file: null, base64: ""});
     const [personal, setPersonal] = useState({});
     const [social, setSocial] = useState({});
     const [confirmation, setConfirmation] = useState("");
     const text = words().creation;
     document.title = "Passport creation";
 
-    const handleAvatar = (e) => setAvatar(e.target.files[0]);
     const handleConfirmation = (e) => setConfirmation(e.target.value);
+
+    const handleAvatar = async (e) => {
+        setAvatar({
+            file: e.target.files[0],
+            base64: await toBase64(e.target.files[0])
+        });
+    }
 
     const handlePersonal = (e) => {
         const pers = personal;
@@ -31,31 +43,13 @@ const Create = () => {
         setSocial(soc);
     }
 
-    const postImage = () => new Promise((resolve, reject) => {
-        const data = new FormData();
-        data.append("image", avatar);
-
-        axios({
-            method: "post",
-            url: "https://api.imgur.com/3/image",
-            data: data,
-            headers: {"Authorization": "Client-ID 4532950a219a439"},
-            mimeType: "multipart/form-data"
-        })
-        .then((resp) => resolve(resp))
-        .catch((err) => reject(err));
-    });
-
     const create = () => {
-        // console.log("Avatar: ", avatar);
-        // console.log("Personal: ", personal);
-        // console.log("Social: ", social);
-        // console.log("Confirmation: ", confirmation);
-
-        postImage()
-            .then((data) => console.log("Success: (image link)" + data.data.data.link))
-            .catch((err) => console.log(err));
-        setAvatar(null);
+        console.log({
+            avatar: avatar.base64.slice(23),
+            personal,
+            social,
+            confirmation
+        });
     }
 
     return(
