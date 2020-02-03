@@ -1,7 +1,7 @@
 import React from "react";
 import words from "../../words";
 
-const Confirmation = () => {
+const Confirmation = ({ state, handleConfirmation, create }) => {
     const text = words().creation.confirmation_component;
     return(
         <div className="container-fluid box m-0 p-3">
@@ -9,9 +9,9 @@ const Confirmation = () => {
 
             <div className="form-group">
                 <label>{text.input} <span className="text-warning">({text.tooltip})</span></label>
-                <input type="text" className="form-control" />
+                <input type="text" className="form-control" onChange={(e) => handleConfirmation(e)} />
             </div>
-            <button className="btn btn-success container-fluid">{text.button}</button>
+            <button className="btn btn-success container-fluid" onClick={create}>{text.button}</button>
         </div>
     );
 };

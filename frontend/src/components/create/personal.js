@@ -3,7 +3,7 @@ import words from "../../words";
 import countries from "../../countries";
 import { Twemoji } from "react-emoji-render";
 
-const Personal = () => {
+const Personal = ({ state, handlePersonal }) => {
     const text = words().creation.personal_component;
     const reqText = words().creation.req;
     return(
@@ -12,40 +12,40 @@ const Personal = () => {
 
             <div className="form-group">
                 <label>{text.nickname} <span className="text-warning">({reqText})</span>:</label>
-                <input type="text" className="form-control" />
+                <input type="text" className="form-control" id="nickname" onChange={(e) => handlePersonal(e)}/>
             </div>
 
             <div className="form-group">
                 <label>{text.name}:</label>
-                <input type="text" className="form-control" />
+                <input type="text" className="form-control" id="name" onChange={(e) => handlePersonal(e)}/>
             </div>
 
             <div className="form-group">
                 <label>{text.surname}:</label>
-                <input type="text" className="form-control" />
+                <input type="text" className="form-control" id="surname" onChange={(e) => handlePersonal(e)}/>
             </div>
 
             <div className="form-group">
                 <label>{text.status}:</label>
-                <input type="text" className="form-control" />
+                <input type="text" className="form-control" id="status" onChange={(e) => handlePersonal(e)}/>
             </div>
 
             <div className="form-group">
                 <label>{text.email}:</label>
-                <input type="text" className="form-control" />
+                <input type="text" className="form-control" id="email" onChange={(e) => handlePersonal(e)}/>
             </div>
 
             <div className="form-group">
                 <label>{text.bdate}:</label>
-                <input type="date" className="form-control" />
+                <input type="date" className="form-control" id="bdate" onChange={(e) => handlePersonal(e)}/>
             </div>
 
             <div className="form-group">
             <label>{text.country}:</label>
-            <select className="form-control">
+            <select className="form-control" id="country" onChange={(e) => handlePersonal(e)}>
                 <option></option>
                 {countries().map((c, i) => (
-                    <option key={i}>{c.name}</option>
+                    <option key={i} value={c.code}>{c.name}</option>
                 ))}
             </select>
             </div>
