@@ -1,0 +1,10 @@
+#import * from "Types.graphql";
+#import * from "Inputs.graphql";
+
+type Query {
+
+}
+
+type Mutation {
+    
+}
