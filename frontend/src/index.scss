@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.css-1jgv6z-ToastContainer {
+    overflow-y: hidden !important;
+}
+
 input[type=date]::-webkit-clear-button {
     display: none;
 }

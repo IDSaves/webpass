@@ -20,7 +20,6 @@ const validateEmail = (email) => {
     return re.test(email);
 };
 
-
 const Create = () => {
     const [avatar, setAvatar] = useState({file: null, base64: ""});
     const [personal, setPersonal] = useState({});
@@ -62,7 +61,9 @@ const Create = () => {
         setSocial(soc);
     }
 
-    const create = () => {
+    const create = async () => {
+        console.log(avatar.base64.split(",")[1]);
+        removeAllToasts();
         let errors = [];
         
         if (avatar.file) {
@@ -102,7 +103,6 @@ const Create = () => {
                 appearance: 'success',
                 autoDismiss: true,
             });
-        if (toastStack.length === 5) removeToast(toastStack[0].id)
     }
 
     return(
