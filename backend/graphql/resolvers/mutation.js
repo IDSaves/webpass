@@ -7,7 +7,7 @@ const genString = (length) => {
     let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for ( let i = 0; i < length; i++ ) result += characters.charAt(Math.floor(Math.random() * characters.length));
     return result;
- }
+}
 
 const postImage = (avatar) => new Promise((resolve, reject) => {
     let data = new FormData();
@@ -33,6 +33,13 @@ export default {
         let avatarLink = avatarUpload.data.data.link;
         let code = genString(5);
         let key = genString(25);
+
+        let foundSameCodes = await Passports.find({code: code});
+        while (foundSameCodes.length > 0) {
+            code = genString(5);
+            foundSameCodes = await Passports.find({code: code});
+        }
+
         let passport = new Passports({
             code: code,
             key: key,
