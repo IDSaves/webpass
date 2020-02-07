@@ -62,7 +62,9 @@ input PassportInput {
 }
 
 type Query {
-    passports: String!
+    passports: [Passport!]!
+    passport(code: String!): Passport!
+    isKeyValid(code: String!, key: String!): Boolean!
 }
 
 type Mutation {
