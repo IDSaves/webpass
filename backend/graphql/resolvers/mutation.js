@@ -78,6 +78,6 @@ export default {
 
         await passport.save()
 
-        return `${code}:${key}`;
+        return code;
     }
 }
