@@ -25,6 +25,7 @@ const Create = () => {
     const [personal, setPersonal] = useState({});
     const [social, setSocial] = useState({});
     const [confirmation, setConfirmation] = useState("");
+    const [isBtnDisabled, setIsBtnDisabled] = useState(false);
     const { addToast, removeToast, removeAllToasts, toastStack  } = useToasts();
     const text = words().creation;
     document.title = "Passport creation";
@@ -62,7 +63,6 @@ const Create = () => {
     }
 
     const create = async () => {
-        console.log(avatar.base64.split(",")[1]);
         removeAllToasts();
         let errors = [];
         
@@ -81,6 +81,15 @@ const Create = () => {
             launchErrorToast("Nickname is required");
             errors.push("Nickname");
         }
+        else if (personal.nickname.length < 4) {
+            launchErrorToast("Nickname must be at least 4 characters");
+            errors.push("Nickname");
+        }
+
+        if (personal.email && !validateEmail(personal.email)) {
+            launchErrorToast("You must enter a valid public email");
+            errors.push("Public email");
+        }
 
         if (Object.keys(social).length === 0) {
             launchErrorToast("You must enter at least one social network");
@@ -89,20 +98,44 @@ const Create = () => {
 
         if (!confirmation) {
             launchErrorToast("Confirmation email is required");
-            errors.push("confirmation");
+            errors.push("Confirmation");
         }
         else {
             if (!validateEmail(confirmation)) {
                 launchErrorToast("You must enter a valid confirmation email");
-                errors.push("confirmation");
+                errors.push("Confirmation");
             }
         }
 
         if (errors.length === 0)
-            addToast("Passport created", {
-                appearance: 'success',
-                autoDismiss: true,
+            addToast("Loading...", {
+                appearance: 'info',
+                autoDismiss: false,
             });
+            setIsBtnDisabled(true);
+            let personalString = "";
+            let socialString = "";
+            for (let [key, value] of Object.entries(personal)) personalString += `${key}: "${value}", `;
+            for (let [key, value] of Object.entries(social)) socialString += `${key}: "${value}", `;
+            // console.log(`{avatar: "${avatar.base64.split(",")[1]}", conf_email: "${confirmation}", ${socialString + personalString}`)
+            try {
+                let query = await axios.post("/graphql", {
+                    query: `
+                        mutation {
+                            createPassport(input: {avatar: "${avatar.base64.split(",")[1]}", conf_email: "${confirmation}", ${socialString + personalString}}) 
+                        }
+                    `
+                })
+                window.location.href = `/passport/${query.data.data.createPassport}`;
+            }
+            catch (e) {
+                removeAllToasts();
+                addToast("Server error", {
+                    appearance: 'error',
+                    autoDismiss: false,
+                });
+            }
+
     }
 
     return(
@@ -124,7 +157,7 @@ const Create = () => {
 
                 </div>
 
-                <Confirmation state={confirmation} handleConfirmation={handleConfirmation} create={create} />
+                <Confirmation state={confirmation} handleConfirmation={handleConfirmation} create={create} isBtnDisabled={isBtnDisabled}/>
 
             </div>
         </Fragment>
