@@ -1,7 +1,6 @@
 import React from "react";
 import words from "../../words";
 import countries from "../../countries";
-import { Twemoji } from "react-emoji-render";
 
 const Personal = ({ state, handlePersonal }) => {
     const text = words().creation.personal_component;

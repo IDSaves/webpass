@@ -4,7 +4,7 @@ import nickGen from "project-name-generator";
 const images = (() => {
     let r = require.context("./avatars", false, /.*\.svg$/);
     let images = {};
-    r.keys().map((item, index) => { images[item.slice(2).split(".")[0]] = r(item); });
+    r.keys().forEach((item, index) => { images[item.slice(2).split(".")[0]] = r(item); });
     return images;
 })();
 
