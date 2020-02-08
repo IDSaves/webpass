@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Twemoji } from "react-emoji-render";
 import words from "../../words";
 import "./index.scss";
 
 const Settings = () => {
-    const [lang, setLang] = useState(words(true));
-    const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+    const lang = words(true);
+    const theme = localStorage.getItem("theme") ? localStorage.getItem("theme") : "light";
 
     const changeLang = (to) => {
         localStorage.setItem("lang", to);
