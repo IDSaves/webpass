@@ -8,7 +8,11 @@
             "button": "Passport management"
         }
     },
+    "no_match": {
+        "title": "No match for "
+    },
     "creation": {
+        "document": "Passport creation",
         "title": "Creation",
         "avatar_component": {
             "title": "Avatar",
@@ -33,6 +37,18 @@
             "tooltip": "Email on which the passport key will be sent.",
             "button": "Create"
         },
-        "req": "required"
+        "errors": {
+            "avatar": "Avatar is required",
+            "avatar_type": "Avatar must be either jpg or png",
+            "nickname": "Nickname is required",
+            "nickname_length": "Nickname must be at least 4 characters",
+            "public_email": "You must enter a valid public email",
+            "social": "You must enter at least one social network",
+            "conf_email": "Confirmation email is required",
+            "conf_email_valid": "You must enter a valid confirmation email"
+        },
+        "req": "required",
+        "loading": "Loading...",
+        "server_error": "Server error"
     }
 }

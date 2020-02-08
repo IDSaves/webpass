@@ -26,9 +26,9 @@ const Create = () => {
     const [social, setSocial] = useState({});
     const [confirmation, setConfirmation] = useState("");
     const [isBtnDisabled, setIsBtnDisabled] = useState(false);
-    const { addToast, removeToast, removeAllToasts, toastStack  } = useToasts();
+    const { addToast, removeAllToasts } = useToasts();
     const text = words().creation;
-    document.title = "Passport creation";
+    document.title = text.document;
 
     useEffect(() => {
         return () => removeAllToasts();
@@ -68,47 +68,45 @@ const Create = () => {
         
         if (avatar.file) {
             if (avatar.file.type !== "image/png" && avatar.file.type !== "image/jpeg") {
-                launchErrorToast("Only png and jpeg are valid!");
+                launchErrorToast(text.errors.avatar_type);
                 errors.push("Avatar");
             }
         }
         else {
-            launchErrorToast("Avatar is required");
+            launchErrorToast(text.errors.avatar);
             errors.push("Avatar");
         }
 
         if (!personal.nickname) {
-            launchErrorToast("Nickname is required");
+            launchErrorToast(text.errors.nickname);
             errors.push("Nickname");
         }
         else if (personal.nickname.length < 4) {
-            launchErrorToast("Nickname must be at least 4 characters");
+            launchErrorToast(text.errors.nickname_length);
             errors.push("Nickname");
         }
 
         if (personal.email && !validateEmail(personal.email)) {
-            launchErrorToast("You must enter a valid public email");
+            launchErrorToast(text.errors.public_email);
             errors.push("Public email");
         }
 
         if (Object.keys(social).length === 0) {
-            launchErrorToast("You must enter at least one social network");
+            launchErrorToast(text.errors.social);
             errors.push("Social");
         }
 
         if (!confirmation) {
-            launchErrorToast("Confirmation email is required");
+            launchErrorToast(text.errors.conf_email);
             errors.push("Confirmation");
         }
-        else {
-            if (!validateEmail(confirmation)) {
-                launchErrorToast("You must enter a valid confirmation email");
-                errors.push("Confirmation");
-            }
+        else if (!validateEmail(confirmation)) {
+            launchErrorToast(text.errors.conf_email_valid);
+            errors.push("Confirmation");
         }
 
-        if (errors.length === 0)
-            addToast("Loading...", {
+        if (errors.length === 0) {
+            addToast(text.loading, {
                 appearance: 'info',
                 autoDismiss: false,
             });
@@ -117,7 +115,6 @@ const Create = () => {
             let socialString = "";
             for (let [key, value] of Object.entries(personal)) personalString += `${key}: "${value}", `;
             for (let [key, value] of Object.entries(social)) socialString += `${key}: "${value}", `;
-            // console.log(`{avatar: "${avatar.base64.split(",")[1]}", conf_email: "${confirmation}", ${socialString + personalString}`)
             try {
                 let query = await axios.post("/graphql", {
                     query: `
@@ -130,11 +127,12 @@ const Create = () => {
             }
             catch (e) {
                 removeAllToasts();
-                addToast("Server error", {
+                addToast(text.server_error, {
                     appearance: 'error',
                     autoDismiss: false,
                 });
             }
+        }
 
     }
 

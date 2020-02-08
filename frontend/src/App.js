@@ -4,12 +4,14 @@ import Footer from "./components/footer";
 import Create from "./components/create";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
+import words from "./words";
 
 const NoMatch = ({ location }) => {
     document.title = "404 - Web Passport";
+    const text = words(); 
     return (
         <div className="mt-4  text-center">
-            <h4 className="mt-3">No match for <code>{location.pathname}</code></h4>
+            <h4 className="mt-3">{text.no_match.title}<code>{location.pathname}</code></h4>
         </div>
     );
 };
