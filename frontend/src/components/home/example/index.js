@@ -9,15 +9,20 @@ const images = (() => {
 })();
 
 const networks = [
+    "fab fa-twitter",
     "fab fa-facebook-square",
+    "fab fa-vk",
     "fab fa-instagram",
-    "fab fa-snapchat-square",
     "fab fa-youtube",
-    "fas fa-envelope-square",
+    "fab fa-reddit",
     "fab fa-github",
     "fab fa-steam",
-    "fab fa-pinterest",
-    "fab fa-telegram"
+    "fab fa-telegram",
+    "fab fa-discord",
+    "fab fa-snapchat-square",
+    "fab fa-soundcloud",
+    "fab fa-mixer",
+    "fab fa-twitch"
 ];
 
 const rand = (min, max) => Math.floor(min + Math.random() * (max + 1 - min));
