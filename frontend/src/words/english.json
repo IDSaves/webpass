@@ -50,5 +50,28 @@
         "req": "required",
         "loading": "Loading...",
         "server_error": "Server error"
+    },
+    "passport": {
+        "document": "Passport",
+        "status": "Status",
+        "email": "Email",
+        "bdate": "Birth date",
+        "country": "Country",
+        "error": "Passport Error",
+        "loading": "Loading...",
+        "months": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ]
     }
 }
