@@ -2,6 +2,7 @@ import React, { useEffect, Fragment } from "react";
 import Home from "./components/home";
 import Footer from "./components/footer";
 import Create from "./components/create";
+import Passport from "./components/passport";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
 import words from "./words";
@@ -37,6 +38,7 @@ const App = () => {
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route path="/create" component={Create} />
+                            <Route path="/passport/:code" component={Passport} />
                             <Route component={NoMatch} />
                         </Switch>
                     </div>
