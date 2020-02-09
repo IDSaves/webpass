@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+th, td {
+    border-top: none !important;
+}
+
 .css-1jgv6z-ToastContainer {
     overflow-y: hidden !important;
 }
@@ -71,6 +75,22 @@ input[type=date]::-webkit-calendar-picker-indicator {
         box-shadow: 0 0 0 1px rgba(20,20,31,.05), 0 1px 3px 0 rgba(20,20,31,.15);
     }
 
+    .popover {
+        background-color: #222230;
+        .arrow::after {
+            border-top-color: #222230;
+        }
+    }
+
+    .popover-header {
+        background-color: #1c1c27;
+        border-bottom: none;
+    }
+
+    .popover-body {
+        color: #d6d8e1;
+    }
+
     input, input:focus, select, select:focus, .input-group-text {
         background-color: #2d2d3f;
         border: 1px solid #42425d;
@@ -81,8 +101,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
         border-right: none;
         color: #888c9b;
     }
-
-
 
     .custom-file-label {
         background-color: #2d2d3f;
@@ -104,4 +122,63 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 a {
     text-decoration: none !important;
+}
+
+
+.fa-facebook-square{
+    color: #1c4c9c;
+}
+
+.fa-instagram{
+    color: #cd245b;
+}
+
+.fa-snapchat-square{
+    color: #e0de37;
+}
+
+.fa-youtube{
+   color: #f80c06; 
+}
+
+.fa-envelope-square{
+    color: rgb(49, 49, 160);
+}
+
+.fa-github{
+    color: black;
+}
+
+.fa-steam{
+    color: #1385b6;
+}
+
+.fa-telegram{
+    color: #32a9dd;
+}
+
+.fa-twitter {
+    color: #00acee;
+}
+
+.fa-vk {
+    color: #4680c2;
+}
+
+.fa-reddit {
+    color: #ff4501;
+}
+
+.fa-discord {
+    color: #7389dc;
+}
+
+.fa-soundcloud{
+    color: #f78211;
+}
+.fa-mixer{
+    color: #02214f;
+}
+.fa-twitch{
+    color: #9146ff;
 }
