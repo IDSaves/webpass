@@ -4,6 +4,7 @@ import Footer from "./components/footer";
 import Create from "./components/create";
 import Passport from "./components/passport";
 import Cookies from "./components/cookies";
+import CookiesNotification from "./components/cookies/notification";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
 import words from "./words";
@@ -32,7 +33,7 @@ const App = () => {
 
     return(
         <Fragment>
-            <div className="row m-0">
+            <div className={!localStorage.getItem("cookies_accept") ? `row mt-3 m-0` : "row m-0"}>
                 <div className="col-lg-6 offset-lg-3 p-0 mt-3">
                     <div className="container-fluid">
                         <Link to="/"><h1 className="text-center mt-3"><b>WEB PASSPORT</b></h1></Link>
@@ -46,6 +47,7 @@ const App = () => {
                     </div>
                 </div>
             </div>
+            {!localStorage.getItem("cookies_accept") ? <CookiesNotification /> : "" }
             <Footer />
         </Fragment>
     );

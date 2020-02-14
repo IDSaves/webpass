@@ -1,9 +1,12 @@
 import React, { Fragment } from "react";
+import words from "../../words";
 
 const Cookies = () => {
+    const text = words();
+
     return (
         <Fragment>
-            <h5 className="text-muted text-center mb-5">Cookies Policy</h5>
+            <h5 className="text-muted text-center mb-5">{text.cookies_policy}</h5>
             <h2>What are cookies?</h2>
             <p>
                 Cookies are small text files containing a string of characters that can be placed on your computer
