@@ -6,6 +6,11 @@
         "management_button": {
             "input": "Ключ",
             "button": "Управление паспортом"
+        },
+        "management_errors": {
+            "server": "Ошибка",
+            "invalid": "Неверный ключ",
+            "correct": "Введите правильный ключ"
         }
     },
     "no_match": {

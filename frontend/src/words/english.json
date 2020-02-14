@@ -6,6 +6,11 @@
         "management_button": {
             "input": "Key",
             "button": "Passport management"
+        },
+        "management_errors": {
+            "server": "Server error",
+            "invalid": "Invalid passport key",
+            "correct": "Enter the correct passport key"
         }
     },
     "no_match": {
