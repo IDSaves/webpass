@@ -1,0 +1,33 @@
+query passport (
+    $code: String!
+){
+    passport(code: $code) {
+        avatar
+        personal {
+            nickname
+            name
+            surname
+            status
+            email
+            bdate
+            country
+        }
+        social {
+            twitter
+            facebook
+            vk
+            instagram
+            youtube
+            reddit
+            github
+            steam
+            telegram
+            discord
+            snapchat
+            soundcloud
+            mixer
+            twitch
+        }
+        creation_date
+    }
+}

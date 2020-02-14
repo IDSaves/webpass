@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useToasts } from "react-toast-notifications";
 import axios from "axios";
+import api from "../../api";
 import words from "../../words";
 import Avatar from "./avatar";
 import Personal from "./personal";
@@ -111,19 +112,14 @@ const Create = () => {
                 autoDismiss: false,
             });
             setIsBtnDisabled(true);
-            let personalString = "";
-            let socialString = "";
-            for (let [key, value] of Object.entries(personal)) personalString += `${key}: "${value}", `;
-            for (let [key, value] of Object.entries(social)) socialString += `${key}: "${value}", `;
             try {
-                let query = await axios.post("/graphql", {
-                    query: `
-                        mutation {
-                            createPassport(input: {avatar: "${avatar.base64.split(",")[1]}", conf_email: "${confirmation}", social: {${socialString}}, personal: {${personalString}}}) 
-                        }
-                    `
+                let query = await api("createPassport", {
+                    avatar: avatar.base64.split(",")[1],
+                    personal: personal,
+                    social: social,
+                    conf_email: confirmation
                 })
-                window.location.href = `/passport/${query.data.data.createPassport}`;
+                window.location.href = `/passport/${query.data.createPassport}`;
             }
             catch (e) {
                 removeAllToasts();

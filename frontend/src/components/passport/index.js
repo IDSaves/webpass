@@ -6,6 +6,7 @@ import words from "../../words";
 import Main from "./main";
 import Social from "./social";
 import Personal from "./personal";
+import api from "../../api";
 import "./index.scss";
 
 const Passport = ({ match }) => {
@@ -19,42 +20,8 @@ const Passport = ({ match }) => {
 
     const loadPassport = async () => {
         try {
-            const data = await axios.post("/graphql", {
-                query: `
-                    query {
-                        passport(code: "${match.params.code}") {
-                            avatar
-                            personal {
-                                nickname
-                                name
-                                surname
-                                status
-                                email
-                                bdate
-                                country
-                            }
-                            social {
-                                twitter
-                                facebook
-                                vk
-                                instagram
-                                youtube
-                                reddit
-                                github
-                                steam
-                                telegram
-                                discord
-                                snapchat
-                                soundcloud
-                                mixer
-                                twitch
-                            }
-                            creation_date
-                        }
-                    }
-                `
-            });
-            let done = data.data.data.passport;
+            const data = await api("passport", { code: match.params.code })
+            let done = data.data.passport;
             if (done.personal.bdate) {
                 let bdate = new Date(parseInt(done.personal.bdate));
                 let convertedBDate = bdate.getDate();
