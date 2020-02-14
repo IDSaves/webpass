@@ -6,9 +6,9 @@ import "./index.scss";
 const Footer = () => {
     return(
         <div className="footer p-2 mt-4">
-            <ul className="nav text-center nav-justified">
+            <ul className="nav text-center nav-justified mb-3">
                 <li className="nav-item">
-                    <p>contact@webpass.app</p>
+                    <a className="text-primary" href="mailto:contact@webpass.app">contact@webpass.app</a>
                 </li>
                 <li className="nav-item">
                     <Link to="/cookies-policy" className="text-primary">Cookies Policy</Link>
