@@ -1,0 +1,8 @@
+mutation createPassport(
+    $avatar: String!
+    $personal: PersonalInput!
+    $social: SocialInput!
+    $conf_email: String!
+){
+    createPassport(input: {avatar: $avatar, conf_email: $conf_email, social: $social, personal: $personal}) 
+}
