@@ -1,0 +1,6 @@
+query isKeyValid (
+    $code: String!
+    $key: String!
+){
+    isKeyValid(code: $code, key: $key)
+}
