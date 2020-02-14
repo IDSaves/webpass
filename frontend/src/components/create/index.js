@@ -119,7 +119,7 @@ const Create = () => {
                 let query = await axios.post("/graphql", {
                     query: `
                         mutation {
-                            createPassport(input: {avatar: "${avatar.base64.split(",")[1]}", conf_email: "${confirmation}", ${socialString + personalString}}) 
+                            createPassport(input: {avatar: "${avatar.base64.split(",")[1]}", conf_email: "${confirmation}", social: {${socialString}}, personal: {${personalString}}}) 
                         }
                     `
                 })
