@@ -29,7 +29,8 @@ const postImage = (avatar) => new Promise((resolve, reject) => {
 
 export default {
     createPassport: async (parent, { input }) => {
-        let avatarUpload = await postImage(input.avatar);
+        const { avatar, social, personal, conf_email} = input;
+        let avatarUpload = await postImage(avatar);
         let avatarLink = avatarUpload.data.data.link;
         let code = genString(5);
         let key = genString(25);
@@ -43,41 +44,34 @@ export default {
         let passport = new Passports({
             code: code,
             key: key,
-
             avatar: avatarLink,
-
-            personal: {
-                nickname: input.nickname,
-                name: input.name,
-                surname: input.surname,
-                status: input.status,
-                email: input.email,
-                bdate: input.bdate,
-                country: input.country
-            },
-
-            social: {
-                twitter: input.twitter,
-                facebook: input.facebook,
-                vk: input.vk,
-                instagram: input.instagram,
-                youtube: input.youtube,
-                reddit: input.reddit,
-                github: input.github,
-                steam: input.steam,
-                telegram: input.telegram,
-                discord: input.discord,
-                snapchat: input.snapchat,
-                soundcloud: input.soundcloud,
-                mixer: input.mixer,
-                twitch: input.twitch
-            },
-
-            conf_email: input.conf_email,
+            personal: personal,
+            social: social,
+            conf_email: conf_email,
         });
 
         await passport.save()
 
         return code;
+    },
+
+    managePassport: async (parent, { input }) => {
+        const { code, key, avatar, personal, social } = input;
+        const passport = await Passports.findOne({code: code, key: key});
+
+        if (avatar && (avatar !== passport.avatar)) {
+            let newAvatar = await postImage(avatar);
+            passport.avatar = newAvatar.data.data.link;
+        }
+
+        for (let [key, value] of Object.entries(personal)) 
+            if (passport.personal[key] !== value) passport.personal[key] = value;
+        
+        for (let [key, value] of Object.entries(social)) 
+            if (passport.social[key] !== value) passport.social[key] = value;
+        
+        await passport.save();
+
+        return passport.code;
     }
 }

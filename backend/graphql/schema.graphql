@@ -8,7 +8,34 @@ type Personal {
     country: String
 }
 
+input PersonalInput {
+    nickname: String!
+    name: String
+    surname: String
+    status: String
+    email: String
+    bdate: String
+    country: String
+}
+
 type Social {
+    twitter: String
+    facebook: String
+    vk: String
+    instagram: String
+    youtube: String
+    reddit: String
+    github: String
+    steam: String
+    telegram: String
+    discord: String
+    snapchat: String
+    soundcloud: String
+    mixer: String
+    twitch: String
+}
+
+input SocialInput {
     twitter: String
     facebook: String
     vk: String
@@ -35,30 +62,19 @@ type Passport {
     creation_date: String!
 }
 
-input PassportInput {
+input PassportCreateInput {
     avatar: String!
-    nickname: String!
-    name: String
-    surname: String
-    status: String
-    email: String
-    bdate: String
-    country: String
-    twitter: String
-    facebook: String
-    vk: String
-    instagram: String
-    youtube: String
-    reddit: String
-    github: String
-    steam: String
-    telegram: String
-    discord: String
-    snapchat: String
-    soundcloud: String
-    mixer: String
-    twitch: String
+    personal: PersonalInput!
+    social: SocialInput!
     conf_email: String!
+}
+
+input PassportManageInput {
+    code: String!
+    key: String!
+    avatar: String!
+    personal: PersonalInput!
+    social: SocialInput!
 }
 
 type Query {
@@ -68,5 +84,6 @@ type Query {
 }
 
 type Mutation {
-   createPassport(input: PassportInput!): String!
+   createPassport(input: PassportCreateInput!): String!
+   managePassport(input: PassportManageInput!): String!
 }
