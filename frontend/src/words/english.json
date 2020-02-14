@@ -73,5 +73,13 @@
             "November",
             "December"
         ]
-    }
+    },
+    "cookies_notification": {
+        "first": "WebPass website use cookies.",
+        "second": "Find out about cookies",
+        "third": "By continuing to browse this site you are agreeing to our use of cookies.",
+        "here": "here",
+        "ok": "Ok"
+    },
+    "cookies_policy": "Cookies Policy"
 }
