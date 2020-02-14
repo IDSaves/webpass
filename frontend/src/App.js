@@ -3,6 +3,7 @@ import Home from "./components/home";
 import Footer from "./components/footer";
 import Create from "./components/create";
 import Passport from "./components/passport";
+import Cookies from "./components/cookies";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
 import words from "./words";
@@ -39,6 +40,7 @@ const App = () => {
                             <Route exact path="/" component={Home} />
                             <Route path="/create" component={Create} />
                             <Route path="/passport/:code" component={Passport} />
+                            <Route path="/cookies-policy" component={Cookies} />
                             <Route component={NoMatch} />
                         </Switch>
                     </div>
