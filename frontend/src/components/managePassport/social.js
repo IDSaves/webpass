@@ -12,7 +12,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">twitter.com/</span>
                 </div>
-                <input type="text" className="form-control" id="twitter" value={state.twitter ? state.twitter : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="twitter" defaultValue={state.twitter ? state.twitter : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Facebook:</label>
@@ -20,7 +20,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">facebook.com/</span>
                 </div>
-                <input type="text" className="form-control" id="facebook" value={state.facebook ? state.facebook : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="facebook" defaultValue={state.facebook ? state.facebook : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Vk:</label>
@@ -28,7 +28,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">vk.com/</span>
                 </div>
-                <input type="text" className="form-control" id="vk" value={state.vk ? state.vk : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="vk" defaultValue={state.vk ? state.vk : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Instagram:</label>
@@ -36,7 +36,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">instagram.com/</span>
                 </div>
-                <input type="text" className="form-control" id="instagram" value={state.instagram ? state.instagram : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="instagram" defaultValue={state.instagram ? state.instagram : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Youtube:</label>
@@ -44,7 +44,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">youtube.com/</span>
                 </div>
-                <input type="text" className="form-control" id="youtube" value={state.youtube ? state.youtube : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="youtube" defaultValue={state.youtube ? state.youtube : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Reddit:</label>
@@ -52,7 +52,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">reddit.com/user/</span>
                 </div>
-                <input type="text" className="form-control" id="reddit" value={state.reddit ? state.reddit : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="reddit" defaultValue={state.reddit ? state.reddit : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Github:</label>
@@ -60,7 +60,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">github.com/</span>
                 </div>
-                <input type="text" className="form-control" id="github" value={state.github ? state.github : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="github" defaultValue={state.github ? state.github : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Steam:</label>
@@ -68,7 +68,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">steamcommunity.com/</span>
                 </div>
-                <input type="text" className="form-control" id="steam" value={state.steam ? state.steam : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="steam" defaultValue={state.steam ? state.steam : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Telegram:</label>
@@ -76,12 +76,12 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">t.me/</span>
                 </div>
-                <input type="text" className="form-control" id="telegram" value={state.telegram ? state.telegram : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="telegram" defaultValue={state.telegram ? state.telegram : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Discord:</label>
             <div className="input-group mb-3">
-                <input type="text" className="form-control" id="discord" value={state.discord ? state.discord : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="discord" defaultValue={state.discord ? state.discord : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Snapchat:</label>
@@ -89,7 +89,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">snapchat.com/add/</span>
                 </div>
-                <input type="text" className="form-control" id="snapchat" value={state.snapchat ? state.snapchat : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="snapchat" defaultValue={state.snapchat ? state.snapchat : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>SoundCloud:</label>
@@ -97,7 +97,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">soundcloud.com/</span>
                 </div>
-                <input type="text" className="form-control" id="soundcloud" value={state.soundcloud ? state.soundcloud : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="soundcloud" defaultValue={state.soundcloud ? state.soundcloud : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Mixer:</label>
@@ -105,7 +105,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">mixer.com</span>
                 </div>
-                <input type="text" className="form-control" id="mixer" value={state.mixer ? state.mixer : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="mixer" defaultValue={state.mixer ? state.mixer : ""} onChange={(e) => handleSocial(e)} />
             </div>
 
             <label>Twitch:</label>
@@ -113,7 +113,7 @@ const Social = ({ state, handleSocial }) => {
                 <div className="input-group-prepend d-none d-sm-block">
                     <span className="input-group-text">twitch.tv/</span>
                 </div>
-                <input type="text" className="form-control" id="twitch" value={state.twitch ? state.twitch : ""} onChange={(e) => handleSocial(e)} />
+                <input type="text" className="form-control" id="twitch" defaultValue={state.twitch ? state.twitch : ""} onChange={(e) => handleSocial(e)} />
             </div>
         </div>
     );
