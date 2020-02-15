@@ -56,6 +56,40 @@
         "loading": "Loading...",
         "server_error": "Server error"
     },
+    "manage": {
+        "document": "Passport management",
+        "title": "Management",
+        "avatar_component": {
+            "title": "Avatar",
+            "input": "Choose image"
+        },
+        "personal_component": {
+            "title": "Personal info",
+            "nickname": "Nickname",
+            "name": "Name",
+            "surname": "Surname",
+            "status": "Status",
+            "email": "Public email",
+            "bdate": "Birth date",
+            "country": "Country"
+        },
+        "social_component": {
+            "title": "Social Networks"
+        },
+        "confirmation_component": {
+            "button": "Edit"
+        },
+        "errors": {
+            "avatar_type": "Avatar must be either jpg or png",
+            "nickname": "Nickname is required",
+            "nickname_length": "Nickname must be at least 4 characters",
+            "public_email": "You must enter a valid public email",
+            "social": "You must enter at least one social network"
+        },
+        "req": "required",
+        "loading": "Loading...",
+        "server_error": "Server error"
+    },
     "passport": {
         "document": "Passport",
         "status": "Status",

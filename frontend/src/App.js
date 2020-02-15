@@ -3,6 +3,7 @@ import Home from "./components/home";
 import Footer from "./components/footer";
 import Create from "./components/create";
 import Passport from "./components/passport";
+import ManagePassport from "./components/managePassport";
 import Cookies from "./components/cookies";
 import CookiesNotification from "./components/cookies/notification";
 import { Switch, Route } from "react-router";
@@ -41,6 +42,7 @@ const App = () => {
                             <Route exact path="/" component={Home} />
                             <Route path="/create" component={Create} />
                             <Route path="/passport/:code" component={Passport} />
+                            <Route path="/passport-management/:key" component={ManagePassport} />
                             <Route path="/cookies-policy" component={Cookies} />
                             <Route component={NoMatch} />
                         </Switch>

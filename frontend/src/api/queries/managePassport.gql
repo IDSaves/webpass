@@ -1,0 +1,9 @@
+mutation managePassport(
+    $code: String!
+    $key: String! 
+    $avatar: String!
+    $personal: PersonalInput!
+    $social: SocialInput!
+){
+    managePassport(input: {code: $code, key: $key, avatar: $avatar, social: $social, personal: $personal}) 
+}

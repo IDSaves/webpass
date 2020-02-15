@@ -56,6 +56,63 @@
         "loading": "Загрузка...",
         "server_error": "Ошибка сервера"
     },
+    "manage": {
+        "document": "Управление паспортом",
+        "title": "Управление",
+        "avatar_component": {
+            "title": "Аватар",
+            "input": "Выбрать картинку"
+        },
+        "personal_component": {
+            "title": "Персональная информация",
+            "nickname": "Никнейм",
+            "name": "Имя",
+            "surname": "Фамилия",
+            "status": "Статус",
+            "email": "Публичная почта",
+            "bdate": "Дата рождения",
+            "country": "Страна"
+        },
+        "social_component": {
+            "title": "Социальные сети"
+        },
+        "confirmation_component": {
+            "button": "Изменить"
+        },
+        "errors": {
+            "avatar_type": "Аватар должен быть, либо jpg, либо png формата",
+            "nickname": "Поле с никнеймом обязательно",
+            "nickname_length": "Никнейм должен состоять минимум из 4 символов",
+            "public_email": "Введите действительную публичную почту",
+            "social": "Вы должны ввести хотя бы одну соц. сеть"
+        },
+        "req": "обязательное",
+        "loading": "Загрузка...",
+        "server_error": "Ошибка сервера"
+    },
+    "passport": {
+        "document": "Passport",
+        "status": "Status",
+        "email": "Email",
+        "bdate": "Birth date",
+        "country": "Country",
+        "error": "Passport Error",
+        "loading": "Loading...",
+        "months": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ]
+    },
     "passport": {
         "document": "Паспорт",
         "status": "Статус",
