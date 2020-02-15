@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useToasts } from "react-toast-notifications";
-import axios from "axios";
 import api from "../../api";
 import words from "../../words";
 import Avatar from "./avatar";

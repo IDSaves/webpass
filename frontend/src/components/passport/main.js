@@ -1,6 +1,4 @@
 import React from "react";
-import { Twemoji } from "react-emoji-render";
-import countries from "../../countries";
 
 const Main = ({ state }) => {
     return (

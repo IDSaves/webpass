@@ -1,7 +1,4 @@
 import React, { useEffect, useState, Fragment } from "react";
-import axios from "axios";
-import { Twemoji } from "react-emoji-render";
-import countries from "../../countries";
 import words from "../../words";
 import Main from "./main";
 import Social from "./social";

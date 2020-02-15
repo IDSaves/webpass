@@ -12,7 +12,7 @@ const Management = () => {
     const handleClick = async () => {
         removeAllToasts();
         const data = key.split(":");
-        if (prevKey != key) {
+        if (prevKey !== key) {
             if (data.length === 2) {
                 try {
                     const check = await api("isKeyValid", {

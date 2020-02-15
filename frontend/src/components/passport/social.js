@@ -120,6 +120,8 @@ const Networks = ({ state }) => {
                         num: 13
                     });
                     break;
+                default: 
+                    break;
             }
         }
     }
@@ -127,8 +129,8 @@ const Networks = ({ state }) => {
         <Fragment>
             {array.map((item, i) => (
                 <li className="nav-item" key={i}>
-                    {item.type != "discord" ? (
-                        <a className="nav-link" href={item.link} target="_blank"><i className={networksList[item.num]} /></a>
+                    {item.type !== "discord" ? (
+                        <a className="nav-link" href={item.link} target="_blank" rel="noopener noreferrer"><i className={networksList[item.num]} /></a>
                     ) : (
                         <a className="nav-link" href="#" data-placement="top" data-toggle="popover" title="Discord" data-content={item.link} onClick={(e) => e.preventDefault()}><i className={networksList[item.num]} /></a>
                     )}
