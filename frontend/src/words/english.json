@@ -96,6 +96,7 @@
         "email": "Email",
         "bdate": "Birth date",
         "country": "Country",
+        "hover_networks": "Choose a social network...",
         "error": "Passport Error",
         "loading": "Loading...",
         "months": [
