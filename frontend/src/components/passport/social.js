@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
+import words from "../../words";
 
 const networksList = [
     "fab fa-twitter",
@@ -17,7 +18,7 @@ const networksList = [
     "fab fa-twitch"
 ];
 
-const Networks = ({ state }) => {
+const netWorksToArr = (state) => {
     let array = [];
     for (const [net, data] of Object.entries(state)) {
         if (data) {
@@ -125,14 +126,18 @@ const Networks = ({ state }) => {
             }
         }
     }
+    return array;
+}
+
+const Networks = ({ networksArr, setChosen }) => {
     return (
         <Fragment>
-            {array.map((item, i) => (
-                <li className="nav-item" key={i}>
+            {networksArr.map((item, i) => (
+                <li className="nav-item" key={i} onMouseEnter={() => setChosen(i.toString())}>
                     {item.type !== "discord" ? (
-                        <a className="nav-link" href={item.link} target="_blank" rel="noopener noreferrer"><i className={networksList[item.num]} /></a>
-                    ) : (
-                        <a className="nav-link" href="#" data-placement="top" data-toggle="popover" title="Discord" data-content={item.link} onClick={(e) => e.preventDefault()}><i className={networksList[item.num]} /></a>
+                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="nav-link"><i className={networksList[item.num]} /></a>
+                    ): (
+                        <span className="nav-link"><i className={networksList[item.num]} /></span>
                     )}
                 </li>
             ))}
@@ -141,11 +146,17 @@ const Networks = ({ state }) => {
 }
 
 const Social = ({ state }) => {
+    const text = words().passport.hover_networks;
+    const [chosen, setChosen] = useState(text);
+    const networksArr = netWorksToArr(state);
     return(
-        <div className="box pass-comp mb-3 p-3">
+        <div className={`box pass-comp mb-3 pt-2 ${chosen || "pb-2"}`}>
             <ul className="nav nav-justified">
-                <Networks state={state} />
+                <Networks networksArr={networksArr} setChosen={setChosen} />
             </ul>
+            <div className="chosen-network bg-dark p-2 text-center" >
+                <p className="mb-0 font-weight-bold">{chosen !== text ? (networksArr[chosen].link.split("https://")[1] || networksArr[chosen].link) : chosen}</p>
+            </div>
         </div>
     );
 };

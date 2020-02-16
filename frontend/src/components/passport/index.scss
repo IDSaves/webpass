@@ -6,11 +6,24 @@
         width: 100%;
     }
 
+    span {
+        cursor: pointer;
+    }
+
     a:hover i {
+        transform: scale(1.3);
+    }
+    span:hover i {
         transform: scale(1.3);
     }
     i {
         transition: .3s;
         font-size: 25px;
     }
+}
+
+.chosen-network{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: white;
 }
