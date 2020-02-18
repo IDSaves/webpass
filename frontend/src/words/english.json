@@ -47,8 +47,13 @@
             "avatar_type": "Avatar must be either jpg or png",
             "nickname": "Nickname is required",
             "nickname_length": "Nickname must be at least 4 characters",
+            "name_surname_length": "Max length for name and surname is 25",
+            "status_length": "Max length for status is 50",
             "public_email": "You must enter a valid public email",
+            "public_email_length": "Max length for public email before @ is 50",
             "social": "You must enter at least one social network",
+            "discord_format": "Invalid format for discord",
+            "discord_length": "Max length for discord before # is 32",
             "conf_email": "Confirmation email is required",
             "conf_email_valid": "You must enter a valid confirmation email"
         },
@@ -83,8 +88,13 @@
             "avatar_type": "Avatar must be either jpg or png",
             "nickname": "Nickname is required",
             "nickname_length": "Nickname must be at least 4 characters",
+            "name_surname_length": "Max length for name and surname is 25",
+            "status_length": "Max length for status is 50",
             "public_email": "You must enter a valid public email",
-            "social": "You must enter at least one social network"
+            "public_email_length": "Max length for public email before @ is 50",
+            "social": "You must enter at least one social network",
+            "discord_format": "Invalid format for discord",
+            "discord_length": "Max length for discord before # is 32"
         },
         "req": "required",
         "loading": "Loading...",

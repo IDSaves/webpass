@@ -91,11 +91,13 @@ const ManagePassport = ({ match }) => {
         removeAllToasts();
         let errors = [];
         
+        // Avatar tests
         if (avatar.file && (avatar.file.type !== "image/png" && avatar.file.type !== "image/jpeg")) {
             launchErrorToast(text.errors.avatar_type);
             errors.push("Avatar");
         }
 
+        // Personal tests
         if (!personal.nickname) {
             launchErrorToast(text.errors.nickname);
             errors.push("Nickname");
@@ -105,15 +107,52 @@ const ManagePassport = ({ match }) => {
             errors.push("Nickname");
         }
 
-        if (personal.email && !validateEmail(personal.email)) {
-            launchErrorToast(text.errors.public_email);
-            errors.push("Public email");
+        if (personal.name.length >= 25 || personal.surname.length >= 25) {
+            launchErrorToast(text.errors.name_surname_length);
+            errors.push("name_surname");
         }
 
+        if (personal.status.length >= 50) {
+            launchErrorToast(text.errors.status_length);
+            errors.push("status");
+        }
+
+        if (personal.email) {
+            if (!validateEmail(personal.email)){
+                launchErrorToast(text.errors.public_email);
+                errors.push("Public email");
+            }
+            else if (personal.email.split("@")[0].length >= 50){
+                launchErrorToast(text.errors.public_email_length);
+                errors.push("Public email");
+            }
+        }
+
+        // Social tests
         if (Object.keys(social).length === 0) {
             launchErrorToast(text.errors.social);
             errors.push("Social");
         }
+
+        if (social.discord) {
+            let dsplitted = social.discord.split("#");
+            if (dsplitted.length === 1) {
+                launchErrorToast(text.errors.discord_format);
+                errors.push("Discord");
+            }
+            else {
+                let [fdpart, sdpart] = dsplitted;
+                if (fdpart.length >= 32) {
+                    launchErrorToast(text.errors.discord_length);
+                    errors.push("Discord");
+                }
+                else if (sdpart.length !== 4) {
+                    launchErrorToast(text.errors.discord_format);
+                    errors.push("Discord");
+                }
+            }
+        }
+
 
         if (errors.length === 0) {
             addToast(text.loading, {
