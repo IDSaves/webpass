@@ -10,7 +10,7 @@ const Search = () => {
             <div className="input-group">
                 <input type="text" className="form-control" placeholder={text} onChange={(e) => setCode(e.target.value)} />
                 <div className="input-group-append">
-                    <button className="btn btn-secondary" type="submit" onClick={() => window.location.href = `/passport/${code}`}>
+                    <button className="btn btn-secondary" type="submit" onClick={() => window.location.href = `/${code}`}>
                         <i className="fas fa-search" />
                     </button>
                 </div>

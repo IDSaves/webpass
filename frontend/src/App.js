@@ -3,22 +3,12 @@ import Home from "./components/home";
 import Footer from "./components/footer";
 import Create from "./components/create";
 import Passport from "./components/passport";
-import ManagePassport from "./components/managePassport";
+import ManagePassport from "./components/manage";
 import Cookies from "./components/cookies";
 import CookiesNotification from "./components/cookies/notification";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
 import words from "./words";
-
-const NoMatch = ({ location }) => {
-    document.title = "404 - Web Passport";
-    const text = words(); 
-    return (
-        <div className="mt-4  text-center">
-            <h4 className="mt-3">{text.no_match.title}<code>{location.pathname}</code></h4>
-        </div>
-    );
-};
 
 const App = () => {
 
@@ -41,10 +31,9 @@ const App = () => {
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route path="/create" component={Create} />
-                            <Route path="/passport/:code" component={Passport} />
-                            <Route path="/passport-management/:key" component={ManagePassport} />
+                            <Route path="/manage/:key" component={ManagePassport} />
                             <Route path="/cookies-policy" component={Cookies} />
-                            <Route component={NoMatch} />
+                            <Route path="/:code" component={Passport} />
                         </Switch>
                     </div>
                 </div>

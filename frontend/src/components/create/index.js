@@ -157,7 +157,7 @@ const Create = () => {
                     social: social,
                     conf_email: confirmation
                 })
-                window.location.href = `/passport/${query.data.createPassport}`;
+                window.location.href = `/${query.data.createPassport}`;
             }
             catch (e) {
                 removeAllToasts();

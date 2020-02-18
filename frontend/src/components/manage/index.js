@@ -168,7 +168,7 @@ const ManagePassport = ({ match }) => {
                     personal: personal,
                     social: social
                 })
-                window.location.href = `/passport/${query.data.managePassport}`;
+                window.location.href = `/${query.data.managePassport}`;
             }
             catch (e) {
                 removeAllToasts();

@@ -20,7 +20,7 @@ const Management = () => {
                         key: data[1]
                     });
                     if (await check.data.isKeyValid === true) {
-                        window.location.href = `/passport-management/${key}`
+                        window.location.href = `/manage/${key}`
                     }
                     else {
                         setPrevKey(key);
