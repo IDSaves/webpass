@@ -112,7 +112,7 @@ const ManagePassport = ({ match }) => {
             errors.push("name_surname");
         }
 
-        if (personal.status.length >= 50) {
+        if (personal.status.length > 50) {
             launchErrorToast(text.errors.status_length);
             errors.push("status");
         }

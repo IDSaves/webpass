@@ -26,8 +26,19 @@
         width: 100%;
     }
 
+    th {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
     td {
-        word-wrap: break-word 
+        word-wrap: break-word;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 
