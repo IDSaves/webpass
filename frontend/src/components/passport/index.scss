@@ -20,10 +20,20 @@
         transition: .3s;
         font-size: 25px;
     }
+
+    table {
+        table-layout: fixed; 
+        width: 100%;
+    }
+
+    td {
+        word-wrap: break-word 
+    }
 }
 
 .chosen-network{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     color: white;
+    word-wrap: break-word 
 }

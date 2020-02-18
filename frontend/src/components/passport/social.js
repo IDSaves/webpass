@@ -149,13 +149,26 @@ const Social = ({ state }) => {
     const text = words().passport.hover_networks;
     const [chosen, setChosen] = useState(text);
     const networksArr = netWorksToArr(state);
+
+    const toFormat = (link) => {
+        let lsplitted = link.split("https://")[1];
+        if (lsplitted) {
+            if (lsplitted.length > 35) {
+                return lsplitted.slice(0, 35) + "..."
+            }
+            return lsplitted
+        }
+        return link
+    }
     return(
         <div className={`box pass-comp mb-3 pt-2 ${chosen || "pb-2"}`}>
             <ul className="nav nav-justified">
                 <Networks networksArr={networksArr} setChosen={setChosen} />
             </ul>
             <div className="chosen-network bg-dark p-2 text-center" >
-                <p className="mb-0 font-weight-bold">{chosen !== text ? (networksArr[chosen].link.split("https://")[1] || networksArr[chosen].link) : chosen}</p>
+                <p className="mb-0 font-weight-bold">
+                    {chosen !== text ? toFormat(networksArr[chosen].link) : chosen}
+                </p>
             </div>
         </div>
     );
