@@ -5,7 +5,7 @@
         "create_button": "Создать паспорт",
         "history": {
             "title": "История",
-            "span": "Последние 5 паспортов"
+            "span": "последние 5 паспортов"
         },
         "management_button": {
             "input": "Ключ",
