@@ -13,6 +13,7 @@ const PassportsSchema = new Schema({
         name: String,
         surname: String,
         status: String,
+        website: String,
         email: String,
         bdate: Date,
         country: String

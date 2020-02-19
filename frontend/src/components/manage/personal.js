@@ -30,6 +30,11 @@ const Personal = ({ state, handlePersonal }) => {
             </div>
 
             <div className="form-group">
+                <label>{text.website}:</label>
+                <input type="text" className="form-control" id="website" defaultValue={state.website ? state.website : ""} onChange={(e) => handlePersonal(e)}/>
+            </div>
+
+            <div className="form-group">
                 <label>{text.email}:</label>
                 <input type="text" className="form-control" id="email" defaultValue={state.email ? state.email : ""} onChange={(e) => handlePersonal(e)}/>
             </div>

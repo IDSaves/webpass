@@ -29,6 +29,7 @@
             "name": "Name",
             "surname": "Surname",
             "status": "Status",
+            "website": "Website",
             "email": "Public email",
             "bdate": "Birth date",
             "country": "Country"
@@ -74,6 +75,7 @@
             "name": "Name",
             "surname": "Surname",
             "status": "Status",
+            "website": "Website",
             "email": "Public email",
             "bdate": "Birth date",
             "country": "Country"
@@ -103,6 +105,7 @@
     "passport": {
         "document": "Passport",
         "status": "Status",
+        "website": "Website",
         "email": "Email",
         "bdate": "Birth date",
         "country": "Country",
