@@ -5,7 +5,8 @@
         "create_button": "Create a passport",
         "history": {
             "title": "History",
-            "span": "last 5 passports"
+            "span": "last 5 passports",
+            "button": "Clear history"
         },
         "management_button": {
             "input": "Key",

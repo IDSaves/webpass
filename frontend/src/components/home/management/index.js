@@ -7,7 +7,7 @@ const Management = () => {
     const [key, setKey] = useState("");
     const [prevKey, setPrevKey] = useState("");
     const { addToast, removeAllToasts } = useToasts();
-    const prevPassports = JSON.parse(localStorage.getItem("passports")).reverse();
+    const prevPassports = JSON.parse(localStorage.getItem("passports"));
     const text = words().home;
 
     const handleClick = async () => {
@@ -69,7 +69,7 @@ const Management = () => {
             {prevPassports ? (
                 <div className="prev-passports mb-3">
                     <h5>{text.history.title} <span className="text-warning">({text.history.span})</span></h5>
-                    {prevPassports.map((pass, i) => (
+                    {prevPassports.reverse().map((pass, i) => (
                         <span><a href={`/manage/${pass}`} className="text-info" key={i}>@{pass.split(":")[0]}</a> </span>
                     ))}
                 </div>
@@ -78,6 +78,7 @@ const Management = () => {
                 <input type="text" className="form-control" placeholder={text.management_button.input} onChange={(e) => setKey(e.target.value)} />
             </div>
             <button type="button" className="btn btn-info container-fluid mt-3" onClick={() => handleClick()} >{text.management_button.button}</button>
+            {prevPassports && <button type="button" className="btn btn-danger container-fluid mt-2" onClick={() => localStorage.removeItem("passports")}>{text.history.button}</button>}
         </div>
     );
 };  
