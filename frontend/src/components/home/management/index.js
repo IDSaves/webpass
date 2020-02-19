@@ -7,7 +7,7 @@ const Management = () => {
     const [key, setKey] = useState("");
     const [prevKey, setPrevKey] = useState("");
     const { addToast, removeAllToasts } = useToasts();
-    const prevPassports = JSON.parse(localStorage.getItem("passports"));
+    const prevPassports = JSON.parse(localStorage.getItem("passports")).reverse();
     const text = words().home;
 
     const handleClick = async () => {
