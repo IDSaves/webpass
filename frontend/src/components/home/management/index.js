@@ -7,6 +7,7 @@ const Management = () => {
     const [key, setKey] = useState("");
     const [prevKey, setPrevKey] = useState("");
     const { addToast, removeAllToasts } = useToasts();
+    const prevPassports = JSON.parse(localStorage.getItem("passports"));
     const text = words().home;
 
     const handleClick = async () => {
@@ -20,6 +21,16 @@ const Management = () => {
                         key: data[1]
                     });
                     if (await check.data.isKeyValid === true) {
+                        if (!localStorage.getItem("passports")) {
+                            localStorage.setItem("passports", JSON.stringify([key]));
+                        }
+                        else {
+                            let current = JSON.parse(localStorage.getItem("passports")).slice(-4);
+                            if (!current.includes(key)) {
+                                current.push(key);
+                                localStorage.setItem("passports", JSON.stringify(current)); 
+                            }
+                        }
                         window.location.href = `/manage/${key}`
                     }
                     else {
@@ -55,6 +66,14 @@ const Management = () => {
 
     return(
         <div className="home-component box p-3 mb-3">
+            {prevPassports ? (
+                <div className="prev-passports mb-3">
+                    <h5>{text.history.title} <span className="text-warning">({text.history.span})</span></h5>
+                    {prevPassports.map((pass, i) => (
+                        <span><a href={`/manage/${pass}`} className="text-info" key={i}>@{pass.split(":")[0]}</a> </span>
+                    ))}
+                </div>
+            ) : null}
             <div className="input-group">
                 <input type="text" className="form-control" placeholder={text.management_button.input} onChange={(e) => setKey(e.target.value)} />
             </div>
