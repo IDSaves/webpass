@@ -21,10 +21,15 @@ const postImage = (avatar) => new Promise((resolve, reject) => {
         headers: {
             "Authorization": `Client-ID ${process.env.IMGUR_KEY}`,
             ...data.getHeaders()
-        }
+        },
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity
     })
     .then((resp) => resolve(resp))
-    .catch((err) => reject(err));
+    .catch((err) => {
+        console.log(err);
+        reject(err)
+    });
 })
 
 export default {
