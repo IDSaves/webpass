@@ -1,13 +1,28 @@
 import axios from "axios";
 import FormData from "form-data";
 import Passports from "../../models/passports.js";
+import fs from "fs";
+import nodemailer from "nodemailer";
+import handlebars from "handlebars";
 
 const genString = (length) => {
     let result = "";
     let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for ( let i = 0; i < length; i++ ) result += characters.charAt(Math.floor(Math.random() * characters.length));
     return result;
-}
+};
+
+const readHTMLFile = (path, callback) => {
+    fs.readFile(path, {encoding: 'utf-8'}, (err, html) => {
+        if (err) {
+            throw err;
+            callback(err);
+        }
+        else {
+            callback(null, html);
+        }
+    });
+};
 
 const postImage = (avatar) => new Promise((resolve, reject) => {
     let data = new FormData();
@@ -56,6 +71,37 @@ export default {
         });
 
         await passport.save()
+
+        let emailTransport = nodemailer.createTransport({
+            host: process.env.EMAIL_HOST,
+            port: process.env.EMAIL_PORT,
+            secure: true,
+            auth: {
+                user: process.env.EMAIL_LOGIN,
+                pass: process.env.EMAIL_PASSWORD
+            }
+        });
+
+        try {
+            readHTMLFile('emailTemplates/keyDelivery.html', async (err, html) => {
+                var template = handlebars.compile(html);
+                var replacements = {
+                     key: `${code}:${key}`
+                };
+                var htmlToSend = template(replacements);
+                var mailOptions = {
+                    from: process.env.EMAIL_FROM, 
+                    to: conf_email,
+                    subject: "WebPass - passport key",
+                    html : htmlToSend
+                 };
+                 let info = await emailTransport.sendMail(mailOptions);
+                 console.log(info.messageId)
+            });
+        }
+        catch (e) {
+            throw new Error(e);
+        }
 
         return code;
     },
