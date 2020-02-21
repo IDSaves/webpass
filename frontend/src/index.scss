@@ -113,6 +113,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
         color: #bdbfc5;
     }
 
+    input:-internal-autofill-selected {
+        background-color: #2d2d3f !important;
+    }
+
     .input-group-text {
         border-right: none;
         color: #888c9b;

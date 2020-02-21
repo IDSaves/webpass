@@ -88,12 +88,12 @@ const Create = () => {
             errors.push("Nickname");
         }
 
-        if (personal.name.length >= 25 || personal.surname.length >= 25) {
+        if ((personal.name && personal.name.length >= 25) || (personal.surname && personal.surname.length >= 25)) {
             launchErrorToast(text.errors.name_surname_length);
             errors.push("name_surname");
         }
 
-        if (personal.status.length > 50) {
+        if (personal.status && personal.status.length > 50) {
             launchErrorToast(text.errors.status_length);
             errors.push("status");
         }
@@ -160,6 +160,7 @@ const Create = () => {
                 window.location.href = `/${query.data.createPassport}`;
             }
             catch (e) {
+                setIsBtnDisabled(false);
                 removeAllToasts();
                 addToast(text.server_error, {
                     appearance: 'error',
