@@ -1,8 +1,9 @@
 mutation createPassport(
     $avatar: String!
+    $type: String!
     $personal: PersonalInput!
     $social: SocialInput!
     $conf_email: String!
 ){
-    createPassport(input: {avatar: $avatar, conf_email: $conf_email, social: $social, personal: $personal}) 
+    createPassport(input: {avatar: $avatar, type: $type, conf_email: $conf_email, social: $social, personal: $personal}) 
 }

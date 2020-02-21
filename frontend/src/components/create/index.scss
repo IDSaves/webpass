@@ -2,10 +2,18 @@
     max-width: 400px;
     margin: auto;
 }
+
 .personal-inputs{
-    max-height: 750px;
+    height: 587px;
+    overflow-y: auto;
 }
+
 .social-inputs{
     max-height: 750px;
     overflow-y: scroll;
 }
+
+// .type-input {
+//     max-width: 400px;
+//     margin: auto;
+// }

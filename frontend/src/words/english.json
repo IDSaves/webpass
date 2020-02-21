@@ -21,16 +21,26 @@
     "no_match": {
         "title": "No match for "
     },
-    "creation": {
-        "document": "Passport creation",
-        "title": "Creation",
+    "creation_manage": {
+        "cdocument": "Passport creation",
+        "ctitle": "Creation",
+        "mdocument": "Passport management",
+        "mtitle": "Management",
         "avatar_component": {
             "title": "Avatar",
             "input": "Choose image"
         },
+        "type_component": {
+            "title": "Type",
+            "input": "Passport type",
+            "person": "Person",
+            "org": "Organization"
+        },
         "personal_component": {
             "title": "Personal info",
+            "stitle": "Information",
             "nickname": "Nickname",
+            "snickname": "Name",
             "name": "Name",
             "surname": "Surname",
             "status": "Status",
@@ -46,13 +56,14 @@
             "title": "Confirmtaion",
             "input": "Confirmation email",
             "tooltip": "Email on which the passport key will be sent.",
-            "button": "Create"
+            "cbutton": "Create",
+            "mbutton": "Edit"
         },
         "errors": {
             "avatar": "Avatar is required",
             "avatar_type": "Avatar must be either jpg or png",
             "nickname": "Nickname is required",
-            "nickname_length": "Nickname must be at least 4 characters",
+            "nickname_length": "Nickname must be at least 4 and shorter than 35 characters",
             "name_surname_length": "Max length for name and surname is 25",
             "status_length": "Max length for status is 50",
             "public_email": "You must enter a valid public email",
@@ -65,47 +76,8 @@
         },
         "req": "required",
         "loading": "Loading...",
-        "server_error": "Server error"
-    },
-    "manage": {
-        "document": "Passport management",
-        "title": "Management",
-        "avatar_component": {
-            "title": "Avatar",
-            "input": "Choose image"
-        },
-        "personal_component": {
-            "title": "Personal info",
-            "nickname": "Nickname",
-            "name": "Name",
-            "surname": "Surname",
-            "status": "Status",
-            "website": "Website",
-            "email": "Public email",
-            "bdate": "Birth date",
-            "country": "Country"
-        },
-        "social_component": {
-            "title": "Social Networks"
-        },
-        "confirmation_component": {
-            "button": "Edit"
-        },
-        "errors": {
-            "avatar_type": "Avatar must be either jpg or png",
-            "nickname": "Nickname is required",
-            "nickname_length": "Nickname must be at least 4 characters",
-            "name_surname_length": "Max length for name and surname is 25",
-            "status_length": "Max length for status is 50",
-            "public_email": "You must enter a valid public email",
-            "public_email_length": "Max length for public email before @ is 50",
-            "social": "You must enter at least one social network",
-            "discord_format": "Invalid format for discord",
-            "discord_length": "Max length for discord before # is 32"
-        },
-        "req": "required",
-        "loading": "Loading...",
-        "server_error": "Server error"
+        "server_error": "Server error",
+        "invalid_key": "Invalid passport key"
     },
     "passport": {
         "document": "Passport",

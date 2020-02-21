@@ -3,6 +3,7 @@ import { useToasts } from "react-toast-notifications";
 import api from "../../api";
 import words from "../../words";
 import Avatar from "./avatar";
+import Type from "./type";
 import Personal from "./personal";
 import Social from "./social";
 import Confirmation from "./confirmation";
@@ -22,13 +23,14 @@ const validateEmail = (email) => {
 
 const Create = () => {
     const [avatar, setAvatar] = useState({file: null, base64: ""});
+    const [type, setType] = useState("person");
     const [personal, setPersonal] = useState({});
     const [social, setSocial] = useState({});
     const [confirmation, setConfirmation] = useState("");
     const [isBtnDisabled, setIsBtnDisabled] = useState(false);
     const { addToast, removeAllToasts } = useToasts();
-    const text = words().creation;
-    document.title = text.document;
+    const text = words().creation_manage;
+    document.title = text.cdocument;
 
     useEffect(() => {
         return () => removeAllToasts();
@@ -48,6 +50,10 @@ const Create = () => {
             file: e.target.files[0],
             base64: await toBase64(e.target.files[0])
         });
+    }
+
+    const handleType = (e) => {
+        setType(e.target.value);
     }
 
     const handlePersonal = (e) => {
@@ -83,7 +89,7 @@ const Create = () => {
             launchErrorToast(text.errors.nickname);
             errors.push("Nickname");
         }
-        else if (personal.nickname.length < 4) {
+        else if (personal.nickname.length < 4 || personal.nickname.length > 35) {
             launchErrorToast(text.errors.nickname_length);
             errors.push("Nickname");
         }
@@ -153,6 +159,7 @@ const Create = () => {
             try {
                 let query = await api("createPassport", {
                     avatar: avatar.base64.split(",")[1],
+                    type: type,
                     personal: personal,
                     social: social,
                     conf_email: confirmation
@@ -173,7 +180,7 @@ const Create = () => {
 
     return(
         <Fragment>
-            <h5 className="text-success text-center">{text.title}</h5>
+            <h5 className="text-success text-center">{text.ctitle}</h5>
             <div className="mb-5 mt-5 creation">
 
                 <Avatar state={avatar} handleAvatar={handleAvatar} />
@@ -181,7 +188,8 @@ const Create = () => {
                 <div className="row mt-4 mb-4">
 
                     <div className="col-xl-6 mb-3">
-                        <Personal state={personal} handlePersonal={handlePersonal}/>
+                        <Type handleType={handleType} />
+                        <Personal type={type} state={personal} handlePersonal={handlePersonal}/>
                     </div>
 
                     <div className="col-xl-6">

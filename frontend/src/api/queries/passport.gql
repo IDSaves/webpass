@@ -3,6 +3,7 @@ query passport (
 ){
     passport(code: $code) {
         avatar
+        type
         personal {
             nickname
             name

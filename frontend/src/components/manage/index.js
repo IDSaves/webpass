@@ -3,6 +3,7 @@ import { useToasts } from "react-toast-notifications";
 import words from "../../words";
 import api from "../../api";
 import Avatar from "./avatar";
+import Type from "./type";
 import Personal from "./personal";
 import Social from "./social";
 import Confirmation from "./confirm";
@@ -24,12 +25,13 @@ const ManagePassport = ({ match }) => {
     const [check, setCheck] = useState(0);
     const [passData, setPassData] = useState({});
     const [avatar, setAvatar] = useState({});
+    const [type, setType] = useState("person");
     const [personal, setPersonal] = useState({});
     const [social, setSocial] = useState({});
     const [isBtnDisabled, setIsBtnDisabled] = useState(false);
     const { addToast, removeAllToasts } = useToasts();
-    const text = words().manage;
-    document.title = text.title;
+    const text = words().creation_manage;
+    document.title = text.mdocument;
 
     useEffect(() => {
         checkValid();
@@ -75,6 +77,10 @@ const ManagePassport = ({ match }) => {
         });
     }
 
+    const handleType = (e) => {
+        setType(e.target.value);
+    }
+
     const handlePersonal = (e) => {
         const pers = personal;
         pers[e.target.id] = e.target.value; 
@@ -102,7 +108,7 @@ const ManagePassport = ({ match }) => {
             launchErrorToast(text.errors.nickname);
             errors.push("Nickname");
         }
-        else if (personal.nickname.length < 4) {
+        else if (personal.nickname.length < 4 || personal.nickname.length > 35) {
             launchErrorToast(text.errors.nickname_length);
             errors.push("Nickname");
         }
@@ -165,6 +171,7 @@ const ManagePassport = ({ match }) => {
                     code: code,
                     key: key,
                     avatar: avatar.base64 ? avatar.base64.split(",")[1] : avatar,
+                    type: type,
                     personal: personal,
                     social: social
                 })
@@ -183,11 +190,11 @@ const ManagePassport = ({ match }) => {
 
     return (
         <Fragment>
-            <h5 className="text-info text-center">Management</h5>
+            <h5 className="text-info text-center">{text.mtitle}</h5>
 
             <div className="mb-3 mt-5">
                 {check === 0 ? (
-                    <h4 className="text-info text-center">Loading...</h4>
+                    <h4 className="text-info text-center">{text.loading}</h4>
                 ): check === 1 ? (
                     <Fragment>
                         <Avatar handleAvatar={handleAvatar} state={avatar} />
@@ -195,11 +202,12 @@ const ManagePassport = ({ match }) => {
                         <div className="row mt-4 mb-4">
 
                             <div className="col-xl-6 mb-3">
-                                <Personal state={personal} handlePersonal={handlePersonal}/>
+                                <Type handleType={handleType} />
+                                <Personal type={type} state={personal} handlePersonal={handlePersonal} />
                             </div>
 
                             <div className="col-xl-6">
-                                <Social state={social} handleSocial={handleSocial}/>
+                                <Social state={social} handleSocial={handleSocial} />
                             </div>
 
                         </div>
@@ -207,9 +215,9 @@ const ManagePassport = ({ match }) => {
 
                     </Fragment>
                 ): check === 2 ? (
-                    <h4 className="text-danger text-center">Invalid passport key</h4>
+                    <h4 className="text-danger text-center">{text.invalid_key}</h4>
                 ): (
-                    <h4 className="text-danger text-center">Server error</h4>
+                    <h4 className="text-danger text-center">{text.server_error}</h4>
                 )}
             </div>
         </Fragment>

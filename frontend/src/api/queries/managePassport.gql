@@ -2,8 +2,9 @@ mutation managePassport(
     $code: String!
     $key: String! 
     $avatar: String!
+    $type: String! 
     $personal: PersonalInput!
     $social: SocialInput!
 ){
-    managePassport(input: {code: $code, key: $key, avatar: $avatar, social: $social, personal: $personal}) 
+    managePassport(input: {code: $code, key: $key, avatar: $avatar, type: $type, social: $social, personal: $personal}) 
 }

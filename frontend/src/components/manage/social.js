@@ -2,7 +2,7 @@ import React from "react";
 import words from "../../words";
 
 const Social = ({ state, handleSocial }) => {
-    const text = words().manage.social_component;
+    const text = words().creation_manage.social_component;
     return(
         <div className="container-fluid box social-inputs m-0 p-3">
             <h4 className="text-center mb-3">{text.title}</h4>
