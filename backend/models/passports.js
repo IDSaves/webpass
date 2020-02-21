@@ -8,6 +8,8 @@ const PassportsSchema = new Schema({
 
     avatar: String,
 
+    type: String,
+
     personal: {
         nickname: String,
         name: String,

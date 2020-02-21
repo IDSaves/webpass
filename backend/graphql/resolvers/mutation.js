@@ -49,7 +49,7 @@ const postImage = (avatar) => new Promise((resolve, reject) => {
 
 export default {
     createPassport: async (parent, { input }) => {
-        const { avatar, social, personal, conf_email} = input;
+        const { avatar, type, social, personal, conf_email} = input;
         let avatarUpload = await postImage(avatar);
         let avatarLink = avatarUpload.data.data.link;
         let code = genString(5);
@@ -65,6 +65,7 @@ export default {
             code: code,
             key: key,
             avatar: avatarLink,
+            type: type,
             personal: personal,
             social: social,
             conf_email: conf_email,
