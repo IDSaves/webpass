@@ -4,6 +4,8 @@ const Passports = require("../../models/passports.js");
 const fs = require("fs");
 const nodemailer = require("nodemailer");
 const handlebars = require("handlebars");
+const path = require("path");
+
 
 const genString = (length) => {
     let result = "";
@@ -87,7 +89,7 @@ module.exports = {
         });
 
         try {
-            readHTMLFile('emailTemplates/keyDelivery.html', async (err, html) => {
+            readHTMLFile(path.join(__dirname, "../../emailTemplates/keyDelivery.html"), async (err, html) => {
                 var template = handlebars.compile(html);
                 var replacements = {
                      key: `${code}:${key}`
