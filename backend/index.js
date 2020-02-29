@@ -25,9 +25,12 @@ app.use("/graphql",
 
 app.listen(4000, () => {
     let mongoHost = process.env.MODE === "prod" ? process.env.MONGO_HOST : "localhost";
-    mongoose.connect(`mongodb://${process.env.MODE === "prod" && `${process.env.MONGO_USER}:${process.env.MONGO_PWD}@`}${mongoHost}:27017/webpass?authSource=admin`, {
+    mongoose.connect(`mongodb://${mongoHost}:27017/webpass`, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        auth: { "authSource": "admin" },
+        user: process.env.MODE === "prod" && process.env.MONGO_USER,
+        pass: process.env.MODE === "prod" && process.env.MONGO_PWD
     },
     (error) => {
         if (error) throw error;
