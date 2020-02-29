@@ -71,8 +71,8 @@ module.exports = {
             conf_email: conf_email,
         });
 
-        await passport.save()
-
+        let newPassport = await passport.save()
+        console.log(newPassport);
         let emailTransport = nodemailer.createTransport({
             host: process.env.EMAIL_HOST,
             port: process.env.EMAIL_PORT,
@@ -107,7 +107,7 @@ module.exports = {
             throw new Error(e);
         }
 
-        return code;
+        return newPassport.code;
     },
 
     managePassport: async (parent, { input }) => {
