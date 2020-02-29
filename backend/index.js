@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true}));
 
-const typeDefs = fs.readFileSync("./graphql/Schema.graphql", "utf8").toString();
+const typeDefs = fs.readFileSync(__dirname + "/graphql/Schema.graphql", "utf8").toString();
 app.use("/graphql",
     graphql({
         schema: makeExecutableSchema({ typeDefs, resolvers }),
