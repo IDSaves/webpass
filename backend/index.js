@@ -6,10 +6,12 @@ const { makeExecutableSchema } = require("graphql-tools");
 const resolvers = require("./graphql/resolvers");
 const fs = require("fs");
 const path = require("path");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true}));
 
