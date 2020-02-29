@@ -76,6 +76,9 @@ module.exports = {
         let emailTransport = nodemailer.createTransport({
             host: process.env.EMAIL_HOST,
             port: process.env.EMAIL_PORT,
+            tls: {
+                rejectUnauthorized:false
+            }
             secure: true,
             auth: {
                 user: process.env.EMAIL_LOGIN,
