@@ -1,7 +1,7 @@
-import MutationResolvers from "./mutation";
-import QueryResolvers from "./query";
+const MutationResolvers = require("./mutation");
+const QueryResolvers = require("./query");
 
-export default {
+module.exports = {
     Query: QueryResolvers,
     Mutation: MutationResolvers
 }

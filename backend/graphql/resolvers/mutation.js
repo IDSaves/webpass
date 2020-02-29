@@ -1,9 +1,9 @@
-import axios from "axios";
-import FormData from "form-data";
-import Passports from "../../models/passports.js";
-import fs from "fs";
-import nodemailer from "nodemailer";
-import handlebars from "handlebars";
+const axios = require("axios");
+const FormData = require("form-data");
+const Passports = require("../../models/passports.js");
+const fs = require("fs");
+const nodemailer = require("nodemailer");
+const handlebars = require("handlebars");
 
 const genString = (length) => {
     let result = "";
@@ -47,7 +47,7 @@ const postImage = (avatar) => new Promise((resolve, reject) => {
     });
 })
 
-export default {
+module.exports = {
     createPassport: async (parent, { input }) => {
         const { avatar, type, social, personal, conf_email} = input;
         let avatarUpload = await postImage(avatar);

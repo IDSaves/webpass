@@ -1,6 +1,6 @@
-import Passports from "../../models/passports.js";
+const Passports = require("../../models/passports.js");
 
-export default {
+module.exports = {
     passports: async () => {
         let every = await Passports.find({});
         return every.map((passport) => {

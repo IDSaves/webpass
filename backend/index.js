@@ -1,11 +1,11 @@
-import express from "express";
-import mongoose  from "mongoose";
-import bodyParser  from "body-parser";
-import graphql  from "express-graphql";
-import { makeExecutableSchema } from "graphql-tools";
-import resolvers from "./graphql/resolvers";
-import fs from "fs";
-import path from "path";
+const express = require("express");
+const mongoose  = require("mongoose");
+const bodyParser  = require("body-parser");
+const graphql  = require("express-graphql");
+const { makeExecutableSchema } = require("graphql-tools");
+const resolvers = require("./graphql/resolvers");
+const fs = require("fs");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();

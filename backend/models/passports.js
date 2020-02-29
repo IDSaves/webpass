@@ -1,4 +1,5 @@
-import mongoose, { Schema } from "mongoose";
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const { ObjectId } = Schema.Types;
 
@@ -46,4 +47,4 @@ const PassportsSchema = new Schema({
     }
 });
 
-export default mongoose.model("Passports", PassportsSchema);
+module.exports = mongoose.model("Passports", PassportsSchema);
